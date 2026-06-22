@@ -51,7 +51,7 @@
             "image_ratio": "landscape",
             "width": "custom",
             "custom_width": 79,
-            "width_mobile": "fill",
+            "width_mobile": "fit-content",
             "custom_width_mobile": 100,
             "height": "fit",
             "slider_bg_color": "",
