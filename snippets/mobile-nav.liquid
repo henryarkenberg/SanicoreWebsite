@@ -178,13 +178,8 @@
     box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
   }
 
-  [data-rbrselector="discountOptionV5"]:has(input:checked) {
-    background-color: #e8f5e9 !important;
-    border: 2px solid #16a34a !important;
-  }
-
-  [data-rbrselector="discountInfoV3RadioButton"]:checked {
-    accent-color: #16a34a !important;
+  [data-rbrselector="discountOptionV5"].fb-selected {
+    padding-bottom: 52px;
   }
 
   .pipe-toggle {
@@ -223,7 +218,7 @@
 
   .whatsapp-btn {
     position: fixed;
-    bottom: 96px;
+    bottom: 88px;
     right: 16px;
     z-index: 99;
     width: 48px;
@@ -235,7 +230,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 16px rgb(37 211 102 / 0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: bottom 0.35s ease, transform 0.2s, box-shadow 0.2s;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -253,8 +248,8 @@
     height: 26px;
   }
 
-  .whatsapp-btn--product {
-    bottom: 150px;
+  .whatsapp-btn--sticky {
+    bottom: 155px;
   }
 
   @media screen and (min-width: 750px) {
@@ -262,7 +257,7 @@
       bottom: 24px;
       right: 24px;
     }
-    .whatsapp-btn--product {
+    .whatsapp-btn--sticky {
       bottom: 24px;
     }
   }
@@ -339,47 +334,31 @@
     position: relative;
   }
 
-  .fb-rainbow {
-    background: linear-gradient(90deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #8b00ff, #ff0000) !important;
-    background-size: 400% 100% !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    animation: fbRainbowAnim 3s linear infinite !important;
-    font-weight: 800 !important;
-    display: inline-block;
-  }
-
-  @keyframes fbRainbowAnim {
-    0% { background-position: 0% center; }
-    100% { background-position: 400% center; }
-  }
-
   .fb-buy-now {
     position: absolute;
     bottom: 8px;
     right: 8px;
-    background: linear-gradient(135deg, #f97316, #ef4444);
+    background: #111;
     color: #fff;
     border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
+    border-radius: 10px;
+    padding: 10px 22px;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 15px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgb(239 68 68 / 0.4);
-    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.25);
+    transition: background 0.15s, transform 0.15s;
     z-index: 2;
     -webkit-tap-highlight-color: transparent;
   }
 
   .fb-buy-now:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgb(239 68 68 / 0.5);
+    background: #000;
+    transform: scale(1.03);
   }
 
   .fb-buy-now:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
   }
 </style>
 
@@ -454,32 +433,7 @@
     document.querySelectorAll('[data-rbrselector="discountOptionV5"]').forEach(function(option) {
       var isChecked = !!option.querySelector('input:checked');
 
-      if (isChecked) {
-        option.classList.add('fb-selected');
-      } else {
-        option.classList.remove('fb-selected');
-      }
-
-      var savingsEl = option.querySelector('.fb-savings');
-      if (!savingsEl) {
-        var candidates = option.querySelectorAll('span, div, small, p, strong, label');
-        candidates.forEach(function(el) {
-          if (savingsEl) return;
-          var text = el.textContent.trim().toLowerCase();
-          if ((text.includes('save') || text.includes('rs.')) && /\d/.test(text)) {
-            savingsEl = el;
-          }
-        });
-        if (savingsEl) savingsEl.classList.add('fb-savings');
-      }
-
-      if (savingsEl) {
-        if (isChecked) {
-          savingsEl.classList.add('fb-rainbow');
-        } else {
-          savingsEl.classList.remove('fb-rainbow');
-        }
-      }
+      option.classList.toggle('fb-selected', isChecked);
 
       var buyBtn = option.querySelector('.fb-buy-now');
       if (isChecked && !buyBtn) {
@@ -520,9 +474,27 @@
 
   fbObserver.observe(document.documentElement, { childList: true, subtree: true });
 
+  function setupWhatsAppSticky() {
+    var waBtn = document.querySelector('.whatsapp-btn');
+    var stickyBar = document.querySelector('.sticky-add-to-cart__bar');
+    if (!waBtn || !stickyBar) return;
+
+    function updateWaPosition() {
+      waBtn.classList.toggle('whatsapp-btn--sticky', stickyBar.getAttribute('data-stuck') === 'true');
+    }
+
+    updateWaPosition();
+    var stickyObserver = new MutationObserver(updateWaPosition);
+    stickyObserver.observe(stickyBar, { attributes: true, attributeFilter: ['data-stuck'] });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() { setTimeout(enhanceFastBundle, 1500); });
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(enhanceFastBundle, 1500);
+      setTimeout(setupWhatsAppSticky, 1600);
+    });
   } else {
     setTimeout(enhanceFastBundle, 1500);
+    setTimeout(setupWhatsAppSticky, 1600);
   }
 </script>
