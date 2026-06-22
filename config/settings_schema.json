@@ -2116,5 +2116,15 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Mobile Bottom Nav",
+    "settings": [
+      {
+        "type": "product",
+        "id": "mobile_nav_best_selling_product",
+        "label": "Best Selling Product"
+      }
+    ]
   }
 ]

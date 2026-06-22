@@ -1,15 +1,25 @@
-{%- assign active_item = '' -%}
-{%- if template == 'index' -%}
-  {%- assign active_item = 'home' -%}
-{%- elsif template contains 'collection' -%}
-  {%- assign active_item = 'categories' -%}
-{%- elsif template == 'cart' -%}
-  {%- assign active_item = 'cart' -%}
-{%- endif -%}
+{%- liquid
+  assign active_item = ''
+  if template == 'index'
+    assign active_item = 'home'
+  elsif template contains 'collection'
+    assign active_item = 'categories'
+  elsif template contains 'product'
+    assign active_item = 'best-selling'
+  elsif template == 'cart'
+    assign active_item = 'cart'
+  endif
+
+  if settings.mobile_nav_best_selling_product != blank
+    assign best_selling_url = settings.mobile_nav_best_selling_product.url
+  else
+    assign best_selling_url = '/collections/all?sort_by=best-selling'
+  endif
+-%}
 
 <mobile-nav>
   <nav class="mobile-nav__bar">
-    <a href="/collections/all?sort_by=best-selling" class="mobile-nav__item">
+    <a href="{{ best_selling_url }}" class="mobile-nav__item{% if active_item == 'best-selling' %} mobile-nav__item--active{% endif %}">
       <svg class="mobile-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       <span class="mobile-nav__label">Best Selling</span>
     </a>
@@ -52,8 +62,13 @@
     mobile-nav {
       display: block;
     }
+
     .page-wrapper {
       padding-bottom: 80px;
+    }
+
+    .sticky-add-to-cart__bar[data-stuck='true'] {
+      bottom: 80px !important;
     }
   }
 
@@ -85,6 +100,7 @@
     justify-content: center;
     position: relative;
     -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.15s;
   }
 
   .mobile-nav__item:active {
@@ -138,18 +154,19 @@
 
   .mobile-nav__badge {
     position: absolute;
-    top: 2px;
-    right: 2px;
-    min-width: 16px;
-    height: 16px;
-    border-radius: 8px;
-    padding: 0 4px;
-    background: rgb(var(--color-foreground-rgb));
-    color: var(--color-background);
-    font-size: 9px;
+    top: 0;
+    right: 0;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    padding: 0 5px;
+    background: #e53935;
+    color: #fff;
+    font-size: 10px;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 18px;
     text-align: center;
     pointer-events: none;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
   }
 </style>
