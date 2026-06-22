@@ -422,6 +422,14 @@
               },
               "block_order": []
             },
+            "whatsapp_button_TYQRNK": {
+              "type": "whatsapp-button",
+              "name": "WhatsApp Button",
+              "settings": {
+                "button_text": "Order on WhatsApp"
+              },
+              "blocks": {}
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -526,6 +534,7 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "whatsapp_button_TYQRNK",
             "text_aEtTtq",
             "image_tdf8PE",
             "image_ihTpfp",
