@@ -281,80 +281,7 @@
     }
   }
 
-  .futuristic-announcement {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(90deg, #050505, #0f0f1a, #141428, #0f0f1a, #050505);
-    background-size: 300% 100%;
-    animation: annBg 8s ease infinite;
-    padding: 10px 16px;
-    text-align: center;
-    overflow: hidden;
-    z-index: 101;
-  }
 
-  body:has(.futuristic-announcement) {
-    padding-top: var(--ann-height, 40px);
-  }
-
-  .futuristic-announcement::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 150%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgb(0 255 136 / 0.08), transparent);
-    animation: annSweep 6s ease-in-out infinite;
-  }
-
-  .futuristic-announcement::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgb(255 255 255 / 0.015) 1px, rgb(255 255 255 / 0.015) 2px);
-    pointer-events: none;
-  }
-
-  @keyframes annBg {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  @keyframes annSweep {
-    0%, 100% { left: -150%; }
-    50% { left: 100%; }
-  }
-
-  .announcement-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .announcement-text {
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 700;
-    background: linear-gradient(90deg, #00ff88, #00ccff, #a855f7, #00ff88);
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: annTextShine 5s linear infinite;
-  }
-
-  @keyframes annTextShine {
-    0% { background-position: 0% center; }
-    100% { background-position: 300% center; }
-  }
 
   [data-rbrselector="discountOptionV5"] {
     position: relative;
@@ -536,15 +463,6 @@
   });
 
   fbObserver.observe(document.documentElement, { childList: true, subtree: true });
-
-  function fixAnnouncementOffset() {
-    var ann = document.querySelector('.futuristic-announcement');
-    if (ann) {
-      document.body.style.setProperty('--ann-height', ann.offsetHeight + 'px');
-    }
-  }
-
-  window.addEventListener('resize', fixAnnouncementOffset);
 
   function openWhatsApp(number) {
     if (!number) return;

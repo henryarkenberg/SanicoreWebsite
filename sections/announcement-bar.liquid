@@ -1,0 +1,130 @@
+
+{% if section.settings.text != blank %}
+  <div class="futuristic-announcement">
+    <div class="announcement-inner">
+      <span class="announcement-text">{{ section.settings.text }}</span>
+    </div>
+  </div>
+{% endif %}
+
+<style>
+  .futuristic-announcement {
+    background: linear-gradient(90deg, #050505, #0f0f1a, #141428, #0f0f1a, #050505);
+    background-size: 300% 100%;
+    animation: annBg 8s ease infinite;
+    padding: 10px 16px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .futuristic-announcement::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgb(0 255 136 / 0.08), transparent);
+    animation: annSweep 6s ease-in-out infinite;
+  }
+
+  .futuristic-announcement::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgb(255 255 255 / 0.015) 1px, rgb(255 255 255 / 0.015) 2px);
+    pointer-events: none;
+  }
+
+  @keyframes annBg {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes annSweep {
+    0%, 100% { left: -150%; }
+    50% { left: 100%; }
+  }
+
+  .announcement-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .announcement-text {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00ff88, #00ccff, #a855f7, #00ff88);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: annTextShine 5s linear infinite;
+  }
+
+  @keyframes annTextShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Futuristic Announcement",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Free shipping on all orders — limited time"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Futuristic Announcement",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
