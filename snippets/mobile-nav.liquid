@@ -215,57 +215,67 @@
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(initPipeToggles, 1500);
-  });
+  function setupPipeToggle(container) {
+    var wrapper = container.querySelector('[data-rbrselector="selectBoxWrapper"]');
+    if (!wrapper || wrapper.classList.contains('pst-done')) return;
+    wrapper.classList.add('pst-done');
+
+    var display = wrapper.querySelector('._placeholder_kbu9k_98, ._selectedValue_kbu9k_98');
+    var currentVal = display ? display.textContent.trim() : '1 Meter';
+
+    var toggle = document.createElement('div');
+    toggle.className = 'pipe-toggle';
+    toggle.innerHTML = '<button type="button" class="pipe-toggle__btn' + (currentVal === '1 Meter' ? ' active' : '') + '" data-value="1 Meter">1 Meter</button><button type="button" class="pipe-toggle__btn' + (currentVal === '1.5 Meters' ? ' active' : '') + '" data-value="1.5 Meters">1.5 Meters</button>';
+
+    wrapper.parentNode.insertBefore(toggle, wrapper.nextSibling);
+    wrapper.style.display = 'none';
+
+    toggle.addEventListener('click', function(e) {
+      var btn = e.target.closest('.pipe-toggle__btn');
+      if (!btn || btn.classList.contains('active')) return;
+
+      var targetValue = btn.dataset.value;
+      var trigger = wrapper.querySelector('._container_kbu9k_42');
+      if (!trigger) return;
+
+      trigger.click();
+
+      setTimeout(function() {
+        var candidates = document.querySelectorAll('span, div, button, li');
+        var clicked = false;
+        candidates.forEach(function(el) {
+          if (clicked) return;
+          var text = el.textContent.trim();
+          if ((text === '1 Meter' || text === '1.5 Meters') && text === targetValue && el.offsetParent !== null) {
+            var rect = el.getBoundingClientRect();
+            if (rect.width > 0 && rect.height > 0) {
+              el.click();
+              clicked = true;
+            }
+          }
+        });
+
+        if (clicked) {
+          toggle.querySelectorAll('.pipe-toggle__btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+        }
+      }, 300);
+    });
+  }
 
   function initPipeToggles() {
-    document.querySelectorAll('[data-rbrselector="variantSelectorsOpenSelectorContainer"]').forEach(function(container) {
-      var wrapper = container.querySelector('[data-rbrselector="selectBoxWrapper"]');
-      if (!wrapper || wrapper.classList.contains('pst-done')) return;
-      wrapper.classList.add('pst-done');
+    document.querySelectorAll('[data-rbrselector="variantSelectorsOpenSelectorContainer"]').forEach(setupPipeToggle);
+  }
 
-      var display = wrapper.querySelector('._placeholder_kbu9k_98, ._selectedValue_kbu9k_98');
-      var currentVal = display ? display.textContent.trim() : '1 Meter';
+  var pipeObserver = new MutationObserver(function() {
+    initPipeToggles();
+  });
 
-      var toggle = document.createElement('div');
-      toggle.className = 'pipe-toggle';
-      toggle.innerHTML = '<button type="button" class="pipe-toggle__btn' + (currentVal === '1 Meter' ? ' active' : '') + '" data-value="1 Meter">1 Meter</button><button type="button" class="pipe-toggle__btn' + (currentVal === '1.5 Meters' ? ' active' : '') + '" data-value="1.5 Meters">1.5 Meters</button>';
+  pipeObserver.observe(document.documentElement, { childList: true, subtree: true });
 
-      wrapper.parentNode.insertBefore(toggle, wrapper.nextSibling);
-      wrapper.style.display = 'none';
-
-      toggle.addEventListener('click', function(e) {
-        var btn = e.target.closest('.pipe-toggle__btn');
-        if (!btn || btn.classList.contains('active')) return;
-
-        var targetValue = btn.dataset.value;
-        var trigger = wrapper.querySelector('._container_kbu9k_42');
-        if (!trigger) return;
-
-        trigger.click();
-
-        setTimeout(function() {
-          var candidates = document.querySelectorAll('span, div, button, li');
-          var clicked = false;
-          candidates.forEach(function(el) {
-            if (clicked) return;
-            var text = el.textContent.trim();
-            if ((text === '1 Meter' || text === '1.5 Meters') && text === targetValue && el.offsetParent !== null) {
-              var rect = el.getBoundingClientRect();
-              if (rect.width > 0 && rect.height > 0) {
-                el.click();
-                clicked = true;
-              }
-            }
-          });
-
-          if (clicked) {
-            toggle.querySelectorAll('.pipe-toggle__btn').forEach(function(b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-          }
-        }, 300);
-      });
-    });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { setTimeout(initPipeToggles, 1500); });
+  } else {
+    setTimeout(initPipeToggles, 1500);
   }
 </script>
