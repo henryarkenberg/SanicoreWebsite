@@ -70,44 +70,30 @@
       var number = btn.dataset.waNumber;
       if (!number) return;
 
-      var parts = [];
+      var message = window.location.href;
 
       var productTitle = document.querySelector('[class*="product-title"] h1, h1[class*="product"], .product__title h1');
       if (productTitle) {
-        parts.push('Product: ' + productTitle.textContent.trim());
+        message += '\n\nProduct: ' + productTitle.textContent.trim();
       }
 
-      var variantInput = document.querySelector('input[name="id"]:not([disabled]), select[name="id"]');
-      if (variantInput) {
-        if (variantInput.tagName === 'SELECT') {
-          var selectedOption = variantInput.options[variantInput.selectedIndex];
-          if (selectedOption && selectedOption.text && !selectedOption.text.includes('Select')) {
-            parts.push('Variant: ' + selectedOption.text.trim());
-          }
-        }
+      var variantEl = document.querySelector('[data-rbrselector="selectBoxWrapper"] ._placeholder_kbu9k_98, [data-rbrselector="selectBoxWrapper"] ._selectedValue_kbu9k_98, select[name="id"]');
+      if (variantEl) {
+        var vt = variantEl.tagName === 'SELECT' ? variantEl.options[variantEl.selectedIndex].text : variantEl.textContent.trim();
+        if (vt && !vt.includes('Select')) message += '\nVariant: ' + vt;
       }
 
       var qtyInput = document.querySelector('input[name="quantity"]');
-      if (qtyInput) {
-        parts.push('Qty: ' + qtyInput.value);
-      }
+      if (qtyInput && qtyInput.value != '1') message += '\nQty: ' + qtyInput.value;
 
       var bundleDetails = [];
       document.querySelectorAll('[data-rbrselector="discountOptionV5"] input:checked').forEach(function(radio) {
-        var container = radio.closest('[data-rbrselector="discountOptionV5"]');
-        if (container) {
-          bundleDetails.push(container.textContent.trim().replace(/\s+/g, ' '));
-        }
+        var text = radio.closest('[data-rbrselector="discountOptionV5"]');
+        if (text) bundleDetails.push(text.textContent.trim().replace(/\s+/g, ' '));
       });
-      if (bundleDetails.length) {
-        parts.push('Bundle: ' + bundleDetails.join(' | '));
-      }
+      if (bundleDetails.length) message += '\nBundle: ' + bundleDetails.join(' | ');
 
-      var message = 'Hi! I want to order:';
-      if (parts.length > 0) {
-        message += '\n' + parts.join('\n');
-      }
-
+      message += '\n\n\n';
       window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(message), '_blank');
     });
   });
@@ -131,7 +117,7 @@
     },
     {
       "type": "paragraph",
-      "content": "Phone number is taken from Theme Settings > Enhanced Mobile UI > WhatsApp number. Configure it there."
+      "content": "Phone number is taken from Theme Settings > Mobile Nav / WhatsApp / Announcement > WhatsApp number. Configure it there."
     },
     {
       "type": "select",
