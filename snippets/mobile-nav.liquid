@@ -282,14 +282,15 @@
   }
 
   .futuristic-announcement {
-    position: relative;
+    position: sticky;
+    top: 0;
     background: linear-gradient(90deg, #050505, #0f0f1a, #141428, #0f0f1a, #050505);
     background-size: 300% 100%;
     animation: annBg 8s ease infinite;
     padding: 10px 16px;
     text-align: center;
     overflow: hidden;
-    z-index: 100;
+    z-index: 101;
   }
 
   .futuristic-announcement::before {
