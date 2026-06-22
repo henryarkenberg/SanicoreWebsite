@@ -2133,8 +2133,8 @@
         "type": "text",
         "id": "whatsapp_number",
         "label": "WhatsApp number",
-        "default": "",
-        "info": "Include country code, e.g. 15551234567"
+        "default": "15551234567",
+        "info": "Include country code without +, e.g. 15551234567"
       },
       {
         "type": "header",

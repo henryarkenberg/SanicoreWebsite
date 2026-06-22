@@ -334,13 +334,59 @@
     0% { background-position: 0% center; }
     100% { background-position: 300% center; }
   }
+
+  [data-rbrselector="discountOptionV5"] {
+    position: relative;
+  }
+
+  .fb-rainbow {
+    background: linear-gradient(90deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #8b00ff, #ff0000) !important;
+    background-size: 400% 100% !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: fbRainbowAnim 3s linear infinite !important;
+    font-weight: 800 !important;
+    display: inline-block;
+  }
+
+  @keyframes fbRainbowAnim {
+    0% { background-position: 0% center; }
+    100% { background-position: 400% center; }
+  }
+
+  .fb-buy-now {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgb(239 68 68 / 0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .fb-buy-now:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgb(239 68 68 / 0.5);
+  }
+
+  .fb-buy-now:active {
+    transform: scale(0.95);
+  }
 </style>
 
-{% if settings.whatsapp_number != blank %}
-<a href="https://wa.me/{{ settings.whatsapp_number | replace: '+', '' | remove: ' ' }}" class="whatsapp-btn{% if template contains 'product' %} whatsapp-btn--product{% endif %}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+{% assign wa_number = settings.whatsapp_number | default: '15551234567' | replace: '+', '' | replace: ' ', '' %}
+<a href="https://wa.me/{{ wa_number }}" class="whatsapp-btn{% if template contains 'product' %} whatsapp-btn--product{% endif %}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-{% endif %}
 
 <script>
   function setupPipeToggle(container) {
@@ -395,15 +441,88 @@
     document.querySelectorAll('[data-rbrselector="variantSelectorsOpenSelectorContainer"]').forEach(setupPipeToggle);
   }
 
-  var pipeObserver = new MutationObserver(function() {
+  function fixVariantLabels() {
+    document.querySelectorAll('[data-rbrselector="variantSelectorsOpenSelectorContainer"] ._label_kbu9k_29').forEach(function(label) {
+      if (label.textContent.trim().toLowerCase() === 'variants' && !label.classList.contains('fb-fixed')) {
+        label.textContent = 'Pipe Size';
+        label.classList.add('fb-fixed');
+      }
+    });
+  }
+
+  function enhanceSelectedOption() {
+    document.querySelectorAll('[data-rbrselector="discountOptionV5"]').forEach(function(option) {
+      var isChecked = !!option.querySelector('input:checked');
+
+      if (isChecked) {
+        option.classList.add('fb-selected');
+      } else {
+        option.classList.remove('fb-selected');
+      }
+
+      var savingsEl = option.querySelector('.fb-savings');
+      if (!savingsEl) {
+        var candidates = option.querySelectorAll('span, div, small, p, strong, label');
+        candidates.forEach(function(el) {
+          if (savingsEl) return;
+          var text = el.textContent.trim().toLowerCase();
+          if ((text.includes('save') || text.includes('rs.')) && /\d/.test(text)) {
+            savingsEl = el;
+          }
+        });
+        if (savingsEl) savingsEl.classList.add('fb-savings');
+      }
+
+      if (savingsEl) {
+        if (isChecked) {
+          savingsEl.classList.add('fb-rainbow');
+        } else {
+          savingsEl.classList.remove('fb-rainbow');
+        }
+      }
+
+      var buyBtn = option.querySelector('.fb-buy-now');
+      if (isChecked && !buyBtn) {
+        buyBtn = document.createElement('button');
+        buyBtn.type = 'button';
+        buyBtn.className = 'fb-buy-now';
+        buyBtn.textContent = 'Buy Now \u2192';
+        option.appendChild(buyBtn);
+
+        buyBtn.addEventListener('click', function(ev) {
+          ev.stopPropagation();
+          var addBtn = document.querySelector('button[name="add"], .product-form__submit, [data-add-to-cart]');
+          if (addBtn) {
+            addBtn.click();
+          } else {
+            var form = document.querySelector('form[action*="/cart/add"]');
+            if (form) {
+              var submitBtn = form.querySelector('button[type="submit"]');
+              if (submitBtn) submitBtn.click();
+            }
+          }
+        });
+      } else if (!isChecked && buyBtn) {
+        buyBtn.remove();
+      }
+    });
+  }
+
+  function enhanceFastBundle() {
     initPipeToggles();
+    fixVariantLabels();
+    enhanceSelectedOption();
+  }
+
+  var fbObserver = new MutationObserver(function() {
+    enhanceFastBundle();
   });
 
-  pipeObserver.observe(document.documentElement, { childList: true, subtree: true });
+  fbObserver.observe(document.documentElement, { childList: true, subtree: true });
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() { setTimeout(initPipeToggles, 1500); });
+    document.addEventListener('DOMContentLoaded', function() { setTimeout(enhanceFastBundle, 1500); });
   } else {
-    setTimeout(initPipeToggles, 1500);
+    setTimeout(enhanceFastBundle, 1500);
   }
 </script>
