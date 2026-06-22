@@ -282,13 +282,18 @@
   }
 
   .futuristic-announcement {
-    position: relative;
+    position: sticky;
+    top: 0;
     background: linear-gradient(90deg, #050505, #0f0f1a, #141428, #0f0f1a, #050505);
     background-size: 300% 100%;
     animation: annBg 8s ease infinite;
     padding: 10px 16px;
     text-align: center;
     z-index: 101;
+  }
+
+  body:has(.futuristic-announcement) #header-group:has(#header-component[sticky]) {
+    top: var(--ann-h, 40px) !important;
   }
 
   .futuristic-announcement::before {
@@ -529,6 +534,12 @@
 
   fbObserver.observe(document.documentElement, { childList: true, subtree: true });
 
+  function setAnnHeight() {
+    var ann = document.querySelector('.futuristic-announcement');
+    if (ann) document.body.style.setProperty('--ann-h', ann.offsetHeight + 'px');
+  }
+  window.addEventListener('resize', setAnnHeight);
+
   function openWhatsApp(number) {
     if (!number) return;
     var message = 'Check out this product: ' + window.location.href;
@@ -565,9 +576,11 @@
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(enhanceFastBundle, 1500);
       setTimeout(setupWhatsAppSticky, 1600);
+      setTimeout(setAnnHeight, 100);
     });
   } else {
     setTimeout(enhanceFastBundle, 1500);
     setTimeout(setupWhatsAppSticky, 1600);
+    setTimeout(setAnnHeight, 100);
   }
 </script>
