@@ -1,0 +1,84 @@
+{%- assign links = '[
+  {"url": "/collections/all?sort_by=best-selling", "icon": "star", "label": "Best Selling"},
+  {"url": "/collections", "icon": "grid", "label": "Categories"},
+  {"url": "/", "icon": "home", "label": "Home"},
+  {"url": "/pages/rewards", "icon": "gift", "label": "Rewards"},
+  {"url": "/cart", "icon": "cart", "label": "Cart"}
+]' | parse_json -%}
+
+<mobile-nav>
+  <nav class="mobile-nav__bar">
+    {%- for link in links -%}
+      <a href="{{ link.url }}" class="mobile-nav__item">
+        <ion-icon name="{{ link.icon }}-outline"></ion-icon>
+        <span>{{ link.label }}</span>
+      </a>
+    {%- endfor -%}
+  </nav>
+</mobile-nav>
+
+<style>
+  mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    z-index: 100;
+  }
+
+  @media screen and (max-width: 749px) {
+    mobile-nav {
+      display: block;
+    }
+    .page-wrapper {
+      padding-bottom: 80px;
+    }
+  }
+
+  .mobile-nav__bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--color-background);
+    border-radius: 16px;
+    box-shadow: 0 -2px 16px rgb(0 0 0 / 0.1);
+    padding: 6px 0;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .mobile-nav__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-decoration: none;
+    color: rgb(var(--color-foreground-rgb) / 0.5);
+    font-size: 9px;
+    line-height: 1.2;
+    padding: 4px 8px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .mobile-nav__item ion-icon {
+    font-size: 22px;
+    --ionicon-stroke-width: 28px;
+  }
+
+  .mobile-nav__item:nth-child(3) {
+    background: var(--color-primary-button-background);
+    color: var(--color-primary-button-text);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    padding: 0;
+    margin-top: -20px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+  }
+</style>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
