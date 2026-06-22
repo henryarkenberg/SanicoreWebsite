@@ -179,6 +179,7 @@
   }
 
   [data-rbrselector="discountOptionV5"].fb-selected {
+    background-color: #16A34A !important;
     padding-bottom: 52px;
   }
 
@@ -448,11 +449,15 @@
           var addBtn = document.querySelector('button[name="add"], .product-form__submit, [data-add-to-cart]');
           if (addBtn) {
             addBtn.click();
+            setTimeout(function() { window.location.href = '/checkout'; }, 400);
           } else {
             var form = document.querySelector('form[action*="/cart/add"]');
             if (form) {
               var submitBtn = form.querySelector('button[type="submit"]');
-              if (submitBtn) submitBtn.click();
+              if (submitBtn) {
+                submitBtn.click();
+                setTimeout(function() { window.location.href = '/checkout'; }, 400);
+              }
             }
           }
         });

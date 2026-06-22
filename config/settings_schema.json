@@ -2118,7 +2118,7 @@
     ]
   },
   {
-    "name": "Enhanced Mobile UI",
+    "name": "Mobile Nav / WhatsApp / Announcement",
     "settings": [
       {
         "type": "product",
@@ -2134,7 +2134,7 @@
         "id": "whatsapp_number",
         "label": "WhatsApp number",
         "default": "15551234567",
-        "info": "Include country code without +, e.g. 15551234567"
+        "info": "Include country code without +, e.g. 15551234567. Used by the floating WhatsApp button and the 'Buy via WhatsApp' section."
       },
       {
         "type": "header",
