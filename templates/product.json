@@ -35,8 +35,8 @@
           "type": "comparison-slider",
           "name": "t:names.comparison_slider",
           "settings": {
-            "before_image": "shopify://shop_images/Gemini_Generated_Image_igt7tfigt7tfigt7.png",
-            "after_image": "shopify://shop_images/Gemini_Generated_Image_55ec8a55ec8a55ec.png",
+            "before_image": "shopify://shop_images/Rust_Build-up.png",
+            "after_image": "shopify://shop_images/Rust_Build-up_1.png",
             "slider_style": "horizontal",
             "show_text": false,
             "before_text": "",
