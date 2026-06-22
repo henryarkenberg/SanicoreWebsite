@@ -2118,12 +2118,39 @@
     ]
   },
   {
-    "name": "Mobile Bottom Nav",
+    "name": "Enhanced Mobile UI",
     "settings": [
       {
         "type": "product",
         "id": "mobile_nav_best_selling_product",
         "label": "Best Selling Product"
+      },
+      {
+        "type": "header",
+        "content": "WhatsApp Button"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp number",
+        "default": "",
+        "info": "Include country code, e.g. 15551234567"
+      },
+      {
+        "type": "header",
+        "content": "Announcement Bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_enabled",
+        "label": "Enable announcement bar",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement text",
+        "default": "Free shipping on all orders — limited time"
       }
     ]
   }
