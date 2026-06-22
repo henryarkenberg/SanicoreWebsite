@@ -93,12 +93,12 @@
       }
 
       var bundleDetails = [];
-      bundleDetails.push(document.querySelectorAll('[data-rbrselector="discountOptionV5"] input:checked').forEach(function(radio) {
+      document.querySelectorAll('[data-rbrselector="discountOptionV5"] input:checked').forEach(function(radio) {
         var container = radio.closest('[data-rbrselector="discountOptionV5"]');
         if (container) {
           bundleDetails.push(container.textContent.trim().replace(/\s+/g, ' '));
         }
-      }));
+      });
       if (bundleDetails.length) {
         parts.push('Bundle: ' + bundleDetails.join(' | '));
       }
