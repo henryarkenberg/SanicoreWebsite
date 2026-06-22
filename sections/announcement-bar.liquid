@@ -1,6 +1,6 @@
 
 {% if section.settings.text != blank %}
-  <div class="futuristic-announcement">
+  <div class="futuristic-announcement" style="{% render 'spacing-padding', settings: section.settings %}">
     <div class="announcement-inner">
       <span class="announcement-text">{{ section.settings.text }}</span>
     </div>
@@ -9,6 +9,7 @@
 
 <style>
   .futuristic-announcement {
+    position: relative;
     background: linear-gradient(90deg, #050505, #0f0f1a, #141428, #0f0f1a, #050505);
     background-size: 300% 100%;
     animation: annBg 8s ease infinite;
@@ -83,17 +84,7 @@
       "type": "text",
       "id": "text",
       "label": "Announcement text",
-      "default": "Free shipping on all orders — limited time"
-    },
-    {
-      "type": "select",
-      "id": "section_width",
-      "label": "Width",
-      "options": [
-        { "value": "page-width", "label": "Page" },
-        { "value": "full-width", "label": "Full" }
-      ],
-      "default": "full-width"
+      "default": "Free shipping on all orders \u2014 limited time"
     },
     {
       "type": "header",
