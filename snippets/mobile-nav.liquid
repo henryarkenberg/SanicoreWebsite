@@ -181,8 +181,25 @@
   [data-rbrselector="discountOptionV5"].fb-selected {
     background-color: #e8f5e9 !important;
     border: 2px solid #16a34a !important;
-    padding-bottom: 52px;
+    padding-bottom: 60px;
   }
+
+  .pipe-toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .pipe-toggle-idx {
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    color: rgb(var(--color-foreground-rgb) / 0.7);
+    min-width: 24px;
+  }
+
+
 
   .pipe-toggle {
     display: flex;
@@ -363,14 +380,11 @@
     transform: scale(0.96);
   }
 
-  #header-component .header__row {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
   @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
     #header-component .header__row {
-      background: rgb(var(--color-background-rgb) / 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgb(var(--color-foreground-rgb) / 0.04);
     }
   }
 </style>
@@ -392,11 +406,22 @@
     var indexEl = container.querySelector('._indexLabel_kbu9k_13');
     var idx = indexEl ? indexEl.textContent.trim() : '';
 
+    var wrap = document.createElement('div');
+    wrap.className = 'pipe-toggle-wrap';
+
+    if (idx) {
+      var idxSpan = document.createElement('span');
+      idxSpan.className = 'pipe-toggle-idx';
+      idxSpan.textContent = idx;
+      wrap.appendChild(idxSpan);
+    }
+
     var toggle = document.createElement('div');
     toggle.className = 'pipe-toggle';
-    toggle.innerHTML = '<button type="button" class="pipe-toggle__btn' + (currentVal === '1 Meter' ? ' active' : '') + '" data-value="1 Meter">' + (idx ? idx + ' ' : '') + '1 Meter</button><button type="button" class="pipe-toggle__btn' + (currentVal === '1.5 Meters' ? ' active' : '') + '" data-value="1.5 Meters">' + (idx ? idx + ' ' : '') + '1.5 Meters</button>';
+    toggle.innerHTML = '<button type="button" class="pipe-toggle__btn' + (currentVal === '1 Meter' ? ' active' : '') + '" data-value="1 Meter">1 Meter</button><button type="button" class="pipe-toggle__btn' + (currentVal === '1.5 Meters' ? ' active' : '') + '" data-value="1.5 Meters">1.5 Meters</button>';
+    wrap.appendChild(toggle);
 
-    wrapper.parentNode.insertBefore(toggle, wrapper.nextSibling);
+    wrapper.parentNode.insertBefore(wrap, wrapper.nextSibling);
     wrapper.style.display = 'none';
 
     toggle.addEventListener('click', function(e) {
@@ -465,16 +490,25 @@
           ev.stopPropagation();
           var addBtn = document.querySelector('button[name="add"], .product-form__submit, [data-add-to-cart]');
           if (addBtn) {
+            var form = addBtn.closest('form');
+            if (form) {
+              var rt = form.querySelector('input[name="return_to"]') || document.createElement('input');
+              rt.type = 'hidden';
+              rt.name = 'return_to';
+              rt.value = '/checkout';
+              if (!rt.parentNode) form.appendChild(rt);
+            }
             addBtn.click();
-            setTimeout(function() { window.location.href = '/checkout'; }, 400);
+            setTimeout(function() { window.location.href = '/checkout'; }, 3000);
           } else {
             var form = document.querySelector('form[action*="/cart/add"]');
             if (form) {
-              var submitBtn = form.querySelector('button[type="submit"]');
-              if (submitBtn) {
-                submitBtn.click();
-                setTimeout(function() { window.location.href = '/checkout'; }, 400);
-              }
+              var rt = form.querySelector('input[name="return_to"]') || document.createElement('input');
+              rt.type = 'hidden';
+              rt.name = 'return_to';
+              rt.value = '/checkout';
+              if (!rt.parentNode) form.appendChild(rt);
+              form.submit();
             }
           }
         });
