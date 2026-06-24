@@ -1,0 +1,246 @@
+
+{% liquid
+  assign id = section.id
+  assign min_minutes = section.settings.min_minutes
+  assign max_minutes = section.settings.max_minutes
+  assign stock_min = section.settings.stock_min
+  assign stock_max = section.settings.stock_max
+  assign expiry_text = section.settings.expiry_text
+  assign hide_on_expiry = section.settings.hide_on_expiry
+  assign show_days = section.settings.show_days
+  assign show_hours = section.settings.show_hours
+  assign show_minutes = section.settings.show_minutes
+  assign show_seconds = section.settings.show_seconds
+  assign show_stock = section.settings.show_stock
+  assign timer_label = section.settings.timer_label
+  assign stock_text = section.settings.stock_text
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ id }}{% endif %}"
+></div>
+
+<div
+  class="section section--{{ section.settings.section_width }} spacing-style"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+>
+  <product-urgency
+    data-id="{{ id }}"
+    data-min-minutes="{{ min_minutes }}"
+    data-max-minutes="{{ max_minutes }}"
+    data-stock-min="{{ stock_min }}"
+    data-stock-max="{{ stock_max }}"
+    data-expiry-text="{{ expiry_text | escape }}"
+    data-hide-on-expiry="{{ hide_on_expiry }}"
+    data-show-days="{{ show_days }}"
+    data-show-hours="{{ show_hours }}"
+    data-show-minutes="{{ show_minutes }}"
+    data-show-seconds="{{ show_seconds }}"
+    data-stock-text="{{ stock_text | escape }}"
+    class="product-urgency"
+  >
+    {% if timer_label != blank %}
+      <span class="product-urgency__label" ref="timerLabel">{{ timer_label }}</span>
+    {% endif %}
+    <span class="product-urgency__timer" ref="timerDisplay">--:--:--</span>
+    {% if show_stock %}
+      <span class="product-urgency__stock" ref="stockDisplay"></span>
+    {% endif %}
+  </product-urgency>
+</div>
+
+<style>
+  product-urgency {
+    display: flex;
+    align-items: center;
+    gap: var(--product-urgency-gap, 8px);
+    flex-wrap: var(--product-urgency-wrap, wrap);
+    justify-content: var(--product-urgency-align, flex-start);
+    padding: var(--product-urgency-padding, 8px 16px);
+    background: var(--product-urgency-bg, rgba(220, 38, 38, 0.06));
+    border-radius: var(--product-urgency-radius, 8px);
+    border: var(--product-urgency-border, 1px solid rgba(220, 38, 38, 0.12));
+    font-family: inherit;
+    font-size: var(--product-urgency-font-size, inherit);
+  }
+
+  .product-urgency__label {
+    color: var(--product-urgency-label-color, inherit);
+    font-weight: var(--product-urgency-label-weight, 500);
+    font-size: var(--product-urgency-label-size, inherit);
+  }
+
+  .product-urgency__timer {
+    color: var(--product-urgency-timer-color, #dc2626);
+    font-weight: var(--product-urgency-timer-weight, 700);
+    font-size: var(--product-urgency-timer-size, inherit);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: var(--product-urgency-timer-spacing, 0.02em);
+  }
+
+  .product-urgency__stock {
+    color: var(--product-urgency-stock-color, inherit);
+    font-weight: var(--product-urgency-stock-weight, 500);
+    font-size: var(--product-urgency-stock-size, inherit);
+    opacity: var(--product-urgency-stock-opacity, 0.8);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:names.product_urgency",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Timer"
+    },
+    {
+      "type": "range",
+      "id": "min_minutes",
+      "label": "t:settings.min_minutes",
+      "info": "Timer will start at a random duration between min and max minutes",
+      "min": 1,
+      "max": 1440,
+      "step": 1,
+      "default": 5,
+      "unit": "min"
+    },
+    {
+      "type": "range",
+      "id": "max_minutes",
+      "label": "t:settings.max_minutes",
+      "min": 1,
+      "max": 1440,
+      "step": 1,
+      "default": 60,
+      "unit": "min"
+    },
+    {
+      "type": "text",
+      "id": "timer_label",
+      "label": "t:settings.timer_label",
+      "default": "Offer ends in"
+    },
+    {
+      "type": "text",
+      "id": "expiry_text",
+      "label": "t:settings.expiry_text",
+      "default": "Offer expired"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_expiry",
+      "label": "t:settings.hide_on_expiry",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_days",
+      "label": "t:settings.show_days",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hours",
+      "label": "t:settings.show_hours",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_minutes",
+      "label": "t:settings.show_minutes",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_seconds",
+      "label": "t:settings.show_seconds",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Stock"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stock",
+      "label": "t:settings.show_stock",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "stock_min",
+      "label": "t:settings.stock_min",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "stock_max",
+      "label": "t:settings.stock_max",
+      "min": 1,
+      "max": 200,
+      "step": 1,
+      "default": 28
+    },
+    {
+      "type": "text",
+      "id": "stock_text",
+      "label": "t:settings.stock_text",
+      "default": "left in stock"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.section_width",
+      "options": [
+        { "value": "page-width", "label": "t:options.page" },
+        { "value": "full-width", "label": "t:options.full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.product_urgency",
+      "category": "t:categories.custom"
+    }
+  ]
+}
+{% endschema %}
