@@ -9,6 +9,28 @@
  */
 {
   "sections": {
+    "product_urgency": {
+      "type": "product-urgency",
+      "name": "Product urgency",
+      "settings": {
+        "min_minutes": 5,
+        "max_minutes": 60,
+        "timer_label": "🔥 Offer ends in",
+        "expiry_text": "Offer expired",
+        "hide_on_expiry": true,
+        "show_days": true,
+        "show_hours": true,
+        "show_minutes": true,
+        "show_seconds": true,
+        "show_stock": true,
+        "stock_min": 3,
+        "stock_max": 28,
+        "stock_text": "left in stock",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "main": {
       "type": "product-information",
       "blocks": {
@@ -850,6 +872,7 @@
     }
   },
   "order": [
+    "product_urgency",
     "main",
     "1782089515dbc4c2f5",
     "product_recommendations_qggXJq"
