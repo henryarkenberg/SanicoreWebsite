@@ -15,7 +15,7 @@
         "ai_gen_block_4ffce22_M7wLQK": {
           "type": "ai_gen_block_4ffce22",
           "settings": {
-            "end_date": "2026-06-31",
+            "end_date": "2027-06-31",
             "end_time": "23:59:59",
             "heading": "ONLY 8 LEFT IN STOCK",
             "expired_message": "This offer has ended",
@@ -921,13 +921,13 @@
         "ai_gen_block_4ffce22_MBKkUW": {
           "type": "ai_gen_block_4ffce22",
           "settings": {
-            "end_date": "2026-12-31",
+            "end_date": "2027-12-31",
             "end_time": "23:59:59",
             "heading": "Limited time offer",
             "expired_message": "This offer has ended",
-            "show_days": true,
+            "show_days": false,
             "label_days": "Days",
-            "show_hours": true,
+            "show_hours": false,
             "label_hours": "Hours",
             "show_minutes": true,
             "label_minutes": "Minutes",
@@ -958,7 +958,7 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
+        "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 12,
         "section_width": "page-width",
