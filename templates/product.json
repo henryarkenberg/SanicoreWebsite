@@ -17,11 +17,11 @@
           "settings": {
             "end_date": "2026-06-31",
             "end_time": "23:59:59",
-            "heading": "Limited time offer",
+            "heading": "MUHARAM SALE - ONLY 8 LEFT IN STOCK",
             "expired_message": "This offer has ended",
-            "show_days": true,
+            "show_days": false,
             "label_days": "Days",
-            "show_hours": true,
+            "show_hours": false,
             "label_hours": "Hours",
             "show_minutes": true,
             "label_minutes": "Minutes",
@@ -31,14 +31,14 @@
             "background_color": "#000000",
             "text_color": "#ffffff",
             "number_color": "#ffffff",
-            "padding": 30,
+            "padding": 10,
             "border_radius": 14,
             "spacing": 20,
-            "heading_size": 24,
-            "number_size": 48,
-            "label_size": 12,
+            "heading_size": 22,
+            "number_size": 60,
+            "label_size": 10,
             "message_size": 16,
-            "unit_width": 80
+            "unit_width": 90
           },
           "blocks": {}
         }
