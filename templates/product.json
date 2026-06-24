@@ -31,6 +31,43 @@
           },
           "blocks": {}
         },
+        "comparison_slider_HWRbyc": {
+          "type": "comparison-slider",
+          "name": "t:names.comparison_slider",
+          "settings": {
+            "before_image": "shopify://shop_images/Rust_Build-up.png",
+            "after_image": "shopify://shop_images/Rust_Build-up_1.png",
+            "slider_style": "horizontal",
+            "show_text": false,
+            "before_text": "",
+            "after_text": "",
+            "text_preset": "",
+            "text_position_horizontal": "start",
+            "text_position_vertical": "start",
+            "text_background": false,
+            "text_background_color": "{{ settings.color_palette.background }}",
+            "text_corner_radius": 0,
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 79,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "slider_bg_color": "",
+            "slider_handle_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 68,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "image_HtVbja": {
           "type": "image",
           "name": "t:names.image",
@@ -422,14 +459,6 @@
               },
               "block_order": []
             },
-            "whatsapp_button_TYQRNK": {
-              "type": "whatsapp-button",
-              "name": "WhatsApp Button",
-              "settings": {
-                "button_text": "Order on WhatsApp"
-              },
-              "blocks": {}
-            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -534,7 +563,6 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "whatsapp_button_TYQRNK",
             "text_aEtTtq",
             "image_tdf8PE",
             "image_ihTpfp",
@@ -544,6 +572,7 @@
       },
       "block_order": [
         "disclosures_g9mWze",
+        "comparison_slider_HWRbyc",
         "image_HtVbja",
         "image_rXeWGp",
         "image_6bAkNt",
