@@ -13,6 +13,9 @@
   "sections": {
     "announcement_bar_kMHQBf": {
       "type": "announcement-bar",
+      "custom_css": [
+        ".futuristic-announcement {position: relative; background: linear-gradient(90deg, #ffff); background-size: 300% 100%; animation: annBg 8s ease infinite; padding: 10px 16px; text-align: center; overflow: hidden; }"
+      ],
       "name": "Futuristic Announcement",
       "settings": {
         "text": "Fastest shipping for all orders — limited time",
