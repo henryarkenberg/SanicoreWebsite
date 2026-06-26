@@ -11,6 +11,15 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "announcement_bar_i3nHNA": {
+      "type": "announcement-bar",
+      "name": "Futuristic Announcement",
+      "settings": {
+        "text": "Fastest shipping on all orders — 25% OFF",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -96,6 +105,7 @@
     }
   },
   "order": [
+    "announcement_bar_i3nHNA",
     "header_section"
   ]
 }
