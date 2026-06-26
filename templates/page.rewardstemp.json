@@ -11,51 +11,28 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "name": "Title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "page-content": {
-          "type": "page-content",
-          "settings": {},
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "heading",
-        "page-content"
-      ],
       "settings": {
         "content_direction": "column",
         "gap": 32,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "background_color": "{{ settings.color_palette.foreground }}",
+        "padding-block-start": 21,
+        "padding-block-end": 0
+      }
+    },
+    "custom_liquid_xFTqfq": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap\" rel=\"stylesheet\">\n<script src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js\" type=\"module\"></script>\n<script src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js\" nomodule></script>\n\n<style>\n  .src-rewards-wrap {\n    --ink: #C8CDD2;\n    --ink-dim: #8A929B;\n    --bg: #15171A;\n    --bg-soft: #1C1F23;\n    --accent: #C98B3F;\n    --line: rgba(200,205,210,0.14);\n\n    background: var(--bg);\n    color: var(--ink);\n    font-family: 'Inter', sans-serif;\n    min-height: 100vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 80px 24px;\n    box-sizing: border-box;\n    position: relative;\n    overflow: hidden;\n  }\n\n  .src-rewards-wrap * { box-sizing: border-box; }\n\n  .src-rewards-grain {\n    position: absolute;\n    inset: 0;\n    background-image: radial-gradient(circle at 20% 30%, rgba(200,205,210,0.05), transparent 40%),\n                       radial-gradient(circle at 80% 70%, rgba(201,139,63,0.06), transparent 45%);\n    pointer-events: none;\n  }\n\n  .src-rewards-container {\n    max-width: 560px;\n    width: 100%;\n    text-align: center;\n    position: relative;\n    z-index: 2;\n  }\n\n  .src-dial {\n    width: 132px;\n    height: 132px;\n    margin: 0 auto 40px;\n    position: relative;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .src-dial-ring {\n    position: absolute;\n    inset: 0;\n    border-radius: 50%;\n    border: 2px solid var(--line);\n    border-top-color: var(--accent);\n    animation: src-spin 7s linear infinite;\n  }\n\n  .src-dial-ring2 {\n    position: absolute;\n    inset: 16px;\n    border-radius: 50%;\n    border: 1px solid var(--line);\n  }\n\n  .src-dial-core {\n    width: 64px;\n    height: 64px;\n    border-radius: 50%;\n    background: linear-gradient(145deg, #2A2D31, #15171A);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: inset 0 1px 1px rgba(200,205,210,0.15), 0 4px 18px rgba(0,0,0,0.4);\n  }\n\n  .src-dial-core ion-icon {\n    font-size: 26px;\n    color: var(--accent);\n  }\n\n  .src-drop {\n    position: absolute;\n    width: 5px;\n    height: 5px;\n    border-radius: 50% 50% 50% 0;\n    background: var(--accent);\n    opacity: 0;\n    bottom: 6px;\n    left: 50%;\n    transform: translateX(-50%) rotate(45deg);\n  }\n\n  .src-drop1 { animation: src-drip 3.2s ease-in infinite; }\n  .src-drop2 { animation: src-drip 3.2s ease-in infinite 1.6s; left: 56%; }\n\n  @keyframes src-spin { to { transform: rotate(360deg); } }\n\n  @keyframes src-drip {\n    0% { opacity: 0; bottom: 6px; }\n    10% { opacity: 0.9; }\n    70% { opacity: 0.5; bottom: -54px; }\n    100% { opacity: 0; bottom: -60px; }\n  }\n\n  .src-eyebrow {\n    font-size: 12px;\n    letter-spacing: 0.22em;\n    text-transform: uppercase;\n    color: var(--accent);\n    font-weight: 600;\n    margin-bottom: 18px;\n  }\n\n  .src-headline {\n    font-family: 'Oswald', sans-serif;\n    font-weight: 600;\n    font-size: clamp(34px, 6vw, 52px);\n    letter-spacing: 0.01em;\n    text-transform: uppercase;\n    line-height: 1.08;\n    margin: 0 0 18px;\n    color: #fff;\n  }\n\n  .src-headline span { color: var(--accent); }\n\n  .src-sub {\n    font-size: 16px;\n    line-height: 1.6;\n    color: var(--ink-dim);\n    margin: 0 auto 36px;\n    max-width: 420px;\n  }\n\n  .src-form {\n    display: flex;\n    gap: 10px;\n    max-width: 420px;\n    margin: 0 auto 16px;\n  }\n\n  .src-form input {\n    flex: 1;\n    background: var(--bg-soft);\n    border: 1px solid var(--line);\n    color: var(--ink);\n    border-radius: 8px;\n    padding: 14px 16px;\n    font-size: 14px;\n    font-family: 'Inter', sans-serif;\n    outline: none;\n    transition: border-color 0.2s ease;\n  }\n\n  .src-form input::placeholder { color: var(--ink-dim); }\n  .src-form input:focus { border-color: var(--accent); }\n\n  .src-form button {\n    background: var(--accent);\n    color: #15171A;\n    border: none;\n    border-radius: 8px;\n    padding: 14px 22px;\n    font-size: 14px;\n    font-weight: 600;\n    font-family: 'Inter', sans-serif;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    transition: filter 0.2s ease;\n    white-space: nowrap;\n  }\n\n  .src-form button:hover { filter: brightness(1.08); }\n  .src-form button:focus-visible,\n  .src-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n  .src-note {\n    font-size: 12.5px;\n    color: var(--ink-dim);\n    margin: 0 0 44px;\n  }\n\n  .src-status-msg {\n    font-size: 13.5px;\n    color: var(--accent);\n    min-height: 18px;\n    margin-top: -4px;\n    margin-bottom: 40px;\n  }\n\n  .src-perks {\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    gap: 1px;\n    border-top: 1px solid var(--line);\n    border-bottom: 1px solid var(--line);\n  }\n\n  .src-perk {\n    padding: 22px 10px;\n    border-left: 1px solid var(--line);\n  }\n\n  .src-perk:first-child { border-left: none; }\n\n  .src-perk ion-icon {\n    font-size: 20px;\n    color: var(--accent);\n    margin-bottom: 10px;\n  }\n\n  .src-perk p {\n    font-size: 12.5px;\n    color: var(--ink-dim);\n    margin: 0;\n    line-height: 1.45;\n  }\n\n  .src-brand {\n    margin-top: 36px;\n    font-size: 12px;\n    letter-spacing: 0.15em;\n    text-transform: uppercase;\n    color: var(--ink-dim);\n  }\n\n  .src-brand b { color: var(--ink); }\n\n  @media (max-width: 480px) {\n    .src-form { flex-direction: column; }\n    .src-perks { grid-template-columns: 1fr; }\n    .src-perk { border-left: none; border-top: 1px solid var(--line); }\n    .src-perk:first-child { border-top: none; }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    .src-dial-ring, .src-drop1, .src-drop2 { animation: none; }\n  }\n</style>\n\n<div class=\"src-rewards-wrap\">\n  <div class=\"src-rewards-grain\"></div>\n  <div class=\"src-rewards-container\">\n\n    <div class=\"src-dial\">\n      <div class=\"src-dial-ring\"></div>\n      <div class=\"src-dial-ring2\"></div>\n      <div class=\"src-dial-core\"><ion-icon name=\"water-outline\"></ion-icon></div>\n      <div class=\"src-drop src-drop1\"></div>\n      <div class=\"src-drop src-drop2\"></div>\n    </div>\n\n    <div class=\"src-eyebrow\">Sanicore Rewards</div>\n    <h1 class=\"src-headline\">Something's <span>turning</span><br>behind the scenes</h1>\n    <p class=\"src-sub\">We're building a rewards programme worth waiting for — better prices, early access, and perks for the people who keep choosing Sanicore.</p>\n\n    <form class=\"src-form\" onsubmit=\"srHandleSignup(event)\">\n      <input type=\"email\" id=\"srEmail\" placeholder=\"Enter your email\" required aria-label=\"Email address\">\n      <button type=\"submit\"><ion-icon name=\"notifications-outline\"></ion-icon>Notify me</button>\n    </form>\n    <div class=\"src-status-msg\" id=\"srStatus\"></div>\n\n    <div class=\"src-perks\">\n      <div class=\"src-perk\">\n        <ion-icon name=\"pricetag-outline\"></ion-icon>\n        <p>Member only pricing</p>\n      </div>\n      <div class=\"src-perk\">\n        <ion-icon name=\"flash-outline\"></ion-icon>\n        <p>Early access to drops</p>\n      </div>\n      <div class=\"src-perk\">\n        <ion-icon name=\"gift-outline\"></ion-icon>\n        <p>Points on every order</p>\n      </div>\n    </div>\n\n    <div class=\"src-brand\"><b>Sanicore</b> · Built to last, made for home</div>\n  </div>\n</div>\n\n<script>\n  function srHandleSignup(e) {\n    e.preventDefault();\n    var email = document.getElementById('srEmail').value;\n    var status = document.getElementById('srStatus');\n    if (email) {\n      status.textContent = \"You're on the list — we'll email you the moment it's live.\";\n      document.getElementById('srEmail').value = '';\n    }\n  }\n</script>",
+        "background_color": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_liquid_xFTqfq"
   ]
 }

@@ -11,18 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "announcement_bar_kMHQBf": {
-      "type": "announcement-bar",
-      "custom_css": [
-        ".futuristic-announcement {position: relative; background: linear-gradient(90deg, #ffff); background-size: 300% 100%; animation: annBg 8s ease infinite; padding: 10px 16px; text-align: center; overflow: hidden; }"
-      ],
-      "name": "Futuristic Announcement",
-      "settings": {
-        "text": "Fastest shipping for all orders — limited time",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -88,7 +76,7 @@
         "actions_font_size": "0.875rem",
         "actions_font": "body",
         "actions_text_case": "none",
-        "background_color_top": "{{ settings.color_palette.background }}",
+        "background_color_top": "{{ settings.color_palette.foreground }}",
         "text_color_top": "",
         "background_color_bottom": "",
         "text_color_bottom": "",
@@ -108,7 +96,6 @@
     }
   },
   "order": [
-    "announcement_bar_kMHQBf",
     "header_section"
   ]
 }
