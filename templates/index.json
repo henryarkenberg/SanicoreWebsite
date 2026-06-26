@@ -110,7 +110,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/Gemini_Generated_Image_zgzei9zgzei9zgze-clean.png",
+            "image": "shopify://shop_images/sanicoreTextLogoForWhite.png",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -132,7 +132,7 @@
               "type": "jumbo-text",
               "name": "t:names.jumbo_text",
               "settings": {
-                "text": "We\nGRANT\nQUALITY",
+                "text": "We\nSELL\nLUXURY",
                 "font": "heading",
                 "alignment": "right",
                 "line_height": "0.8",
