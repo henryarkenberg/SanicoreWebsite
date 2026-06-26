@@ -264,7 +264,7 @@
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
-                "text_color": "#AA0202",
+                "text_color": "#aa0202",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -297,6 +297,37 @@
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "featured_collection_edMBzC": {
+      "type": "featured-collection",
+      "name": "Featured Collection",
+      "settings": {
+        "collection": "frontpage",
+        "max_products": 8,
+        "heading": "FLASH SALE 23% OFF",
+        "description": "Discover our handpicked selection of premium products.",
+        "button_text": "View All",
+        "button_link": "",
+        "header_alignment": "center",
+        "columns_desktop": 4,
+        "columns_tablet": 3,
+        "columns_mobile": 2,
+        "aspect_ratio": "1 / 1",
+        "card_border_radius": 8,
+        "card_bg": "",
+        "hover_effect": "shadow",
+        "show_title": true,
+        "show_price": true,
+        "show_vendor": false,
+        "show_badge": true,
+        "enable_quick_add": false,
+        "badge_sale_bg": "#e53935",
+        "badge_sale_text": "#ffffff",
+        "section_width": "page-width",
+        "background_color": "",
         "padding-block-start": 48,
         "padding-block-end": 48
       }
@@ -345,6 +376,7 @@
   "order": [
     "hero_jVaWmY",
     "product_list_fa6P9H",
+    "featured_collection_edMBzC",
     "1782095341650a35e5"
   ]
 }
