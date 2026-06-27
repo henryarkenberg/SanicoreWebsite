@@ -1,6 +1,15 @@
 
 {% if section.settings.text != blank %}
-  <div class="futuristic-announcement" style="{% render 'spacing-padding', settings: section.settings %}">
+  <div class="futuristic-announcement" style="
+    {% render 'spacing-padding', settings: section.settings %}
+    --ann-bg-1: {{ section.settings.bg_color_1 }};
+    --ann-bg-2: {{ section.settings.bg_color_2 }};
+    --ann-bg-3: {{ section.settings.bg_color_3 }};
+    --ann-text-1: {{ section.settings.text_color_1 }};
+    --ann-text-2: {{ section.settings.text_color_2 }};
+    --ann-text-3: {{ section.settings.text_color_3 }};
+    --ann-sweep: {{ section.settings.sweep_color }};
+  ">
     <div class="announcement-inner">
       <span class="announcement-text">{{ section.settings.text }}</span>
     </div>
@@ -10,7 +19,7 @@
 <style>
   .futuristic-announcement {
     position: relative;
-    background: linear-gradient(90deg, #050505, #0f0f1a, #141428, #0f0f1a, #050505);
+    background: linear-gradient(90deg, var(--ann-bg-1, #050505), var(--ann-bg-2, #0f0f1a), var(--ann-bg-3, #141428), var(--ann-bg-2, #0f0f1a), var(--ann-bg-1, #050505));
     background-size: 300% 100%;
     animation: annBg 8s ease infinite;
     padding: 10px 16px;
@@ -25,7 +34,7 @@
     left: -150%;
     width: 150%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgb(0 255 136 / 0.08), transparent);
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--ann-sweep, #00ff88) 8%, transparent), transparent);
     animation: annSweep 6s ease-in-out infinite;
   }
 
@@ -62,7 +71,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 700;
-    background: linear-gradient(90deg, #00ff88, #00ccff, #a855f7, #00ff88);
+    background: linear-gradient(90deg, var(--ann-text-1, #00ff88), var(--ann-text-2, #00ccff), var(--ann-text-3, #a855f7), var(--ann-text-1, #00ff88));
     background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -85,6 +94,56 @@
       "id": "text",
       "label": "Announcement text",
       "default": "Free shipping on all orders \u2014 limited time"
+    },
+    {
+      "type": "header",
+      "content": "Background Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_1",
+      "label": "Background start/end",
+      "default": "#050505"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_2",
+      "label": "Background mid outer",
+      "default": "#0f0f1a"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_3",
+      "label": "Background center",
+      "default": "#141428"
+    },
+    {
+      "type": "color",
+      "id": "sweep_color",
+      "label": "Sweep/scan highlight",
+      "default": "#00ff88"
+    },
+    {
+      "type": "header",
+      "content": "Text Gradient Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color_1",
+      "label": "Text color 1",
+      "default": "#00ff88"
+    },
+    {
+      "type": "color",
+      "id": "text_color_2",
+      "label": "Text color 2",
+      "default": "#00ccff"
+    },
+    {
+      "type": "color",
+      "id": "text_color_3",
+      "label": "Text color 3",
+      "default": "#a855f7"
     },
     {
       "type": "header",

@@ -23,7 +23,7 @@
   assign button_link = section.settings.button_link
 
   if section_collection == blank
-    assign section_collection = collections['all']
+    assign no_collection = true
   endif
 %}
 
@@ -48,7 +48,7 @@
     </div>
   {% endif %}
 
-  {% if section_collection != blank and section_collection.products.size > 0 %}
+  {% if section_collection != blank and shop.products_count > 0 %}
     <div class="fc-grid" style="--fc-columns-desktop: {{ columns_desktop }}; --fc-columns-tablet: {{ columns_tablet }}; --fc-columns-mobile: {{ columns_mobile }}; --fc-card-radius: {{ card_border_radius }}px; --fc-badge-bg: {{ badge_sale_bg }}; --fc-badge-text: {{ badge_sale_text }}; --fc-card-bg: {{ card_bg }};">
       {% paginate section_collection.products by max_products %}
         {% for product in section_collection.products limit: max_products %}
@@ -105,8 +105,24 @@
       {% endpaginate %}
     </div>
   {% else %}
-    <div class="fc-empty">
-      <p>{{ 'collections.general.no_products' | t }}</p>
+    <div class="fc-grid" style="--fc-columns-desktop: {{ columns_desktop }}; --fc-columns-tablet: {{ columns_tablet }}; --fc-columns-mobile: {{ columns_mobile }}; --fc-card-radius: {{ card_border_radius }}px;">
+      {% for i in (1..max_products) %}
+        <div class="fc-card" data-animate>
+          <div class="fc-card-image-wrap" style="--fc-ar: {{ aspect_ratio }};">
+            <div class="fc-card-img-placeholder">{{ 'product-1' | placeholder_svg_tag: 'fc-card-img' }}</div>
+          </div>
+          <div class="fc-card-info">
+            {% if show_title %}
+              <span class="fc-title">{{ 'homepage.onboarding.product_title' | t }}</span>
+            {% endif %}
+            {% if show_price %}
+              <div class="fc-price">
+                <span class="fc-price-regular">{{ 1999 | money }}</span>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
     </div>
   {% endif %}
 </div>
