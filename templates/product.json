@@ -79,22 +79,6 @@
     "main": {
       "type": "product-information",
       "blocks": {
-        "ai_gen_block_f39eb41_QPfkag": {
-          "type": "ai_gen_block_f39eb41",
-          "settings": {
-            "button_text": "Buy on WhatsApp",
-            "whatsapp_number": "923249502680",
-            "custom_message": "",
-            "desktop_width_percent": 100,
-            "button_background_color": "#25D366",
-            "button_hover_color": "#128C7E",
-            "button_text_color": "#ffffff",
-            "font_size": 16,
-            "border_radius": 14,
-            "icon_size": 20
-          },
-          "blocks": {}
-        },
         "disclosures_g9mWze": {
           "type": "disclosures",
           "name": "t:names.disclosures",
@@ -542,6 +526,22 @@
               },
               "block_order": []
             },
+            "ai_gen_block_f39eb41_mj88yC": {
+              "type": "ai_gen_block_f39eb41",
+              "settings": {
+                "button_text": "Buy on WhatsApp",
+                "whatsapp_number": "923249502680",
+                "custom_message": "",
+                "desktop_width_percent": 100,
+                "button_background_color": "#25D366",
+                "button_hover_color": "#128C7E",
+                "button_text_color": "#ffffff",
+                "font_size": 16,
+                "border_radius": 14,
+                "icon_size": 20
+              },
+              "blocks": {}
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -646,6 +646,7 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "ai_gen_block_f39eb41_mj88yC",
             "text_aEtTtq",
             "image_tdf8PE",
             "image_ihTpfp",
@@ -654,7 +655,6 @@
         }
       },
       "block_order": [
-        "ai_gen_block_f39eb41_QPfkag",
         "disclosures_g9mWze",
         "comparison_slider_HWRbyc",
         "image_HtVbja",
