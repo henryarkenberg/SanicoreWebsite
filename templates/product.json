@@ -79,6 +79,22 @@
     "main": {
       "type": "product-information",
       "blocks": {
+        "ai_gen_block_f39eb41_QPfkag": {
+          "type": "ai_gen_block_f39eb41",
+          "settings": {
+            "button_text": "Buy on WhatsApp",
+            "whatsapp_number": "923249502680",
+            "custom_message": "",
+            "desktop_width_percent": 100,
+            "button_background_color": "#25D366",
+            "button_hover_color": "#128C7E",
+            "button_text_color": "#ffffff",
+            "font_size": 16,
+            "border_radius": 14,
+            "icon_size": 20
+          },
+          "blocks": {}
+        },
         "disclosures_g9mWze": {
           "type": "disclosures",
           "name": "t:names.disclosures",
@@ -510,7 +526,7 @@
                   "type": "add-to-cart",
                   "static": true,
                   "settings": {
-                    "style_class": "button-secondary",
+                    "style_class": "button",
                     "custom_button_background": "{{ settings.color_palette.foreground }}",
                     "custom_button_text": "{{ settings.color_palette.background }}",
                     "custom_button_border": "{{ settings.color_palette.background }}"
@@ -638,6 +654,7 @@
         }
       },
       "block_order": [
+        "ai_gen_block_f39eb41_QPfkag",
         "disclosures_g9mWze",
         "comparison_slider_HWRbyc",
         "image_HtVbja",
