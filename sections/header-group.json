@@ -16,6 +16,13 @@
       "name": "Futuristic Announcement",
       "settings": {
         "text": "Fastest shipping on all orders — 25% OFF",
+        "bg_color_1": "{{ settings.color_palette.background }}",
+        "bg_color_2": "#CBCBE4",
+        "bg_color_3": "#ACACC0",
+        "sweep_color": "#B1D8C6",
+        "text_color_1": "#005F33",
+        "text_color_2": "#005C73",
+        "text_color_3": "#490985",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
