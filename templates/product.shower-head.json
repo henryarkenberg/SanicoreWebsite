@@ -102,8 +102,8 @@
           "type": "comparison-slider",
           "name": "t:names.comparison_slider",
           "settings": {
-            "before_image": "shopify://shop_images/Rust_Build-up.png",
-            "after_image": "shopify://shop_images/Rust_Build-up_1.png",
+            "before_image": "shopify://shop_images/shower6.png",
+            "after_image": "shopify://shop_images/shower3.png",
             "slider_style": "horizontal",
             "show_text": false,
             "before_text": "",
