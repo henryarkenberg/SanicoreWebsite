@@ -69,6 +69,7 @@
         "text_YLPk4p",
         "text_JKcd87"
       ],
+      "disabled": true,
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
