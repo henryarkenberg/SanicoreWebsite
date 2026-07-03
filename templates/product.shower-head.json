@@ -163,7 +163,7 @@
           "type": "image",
           "name": "t:names.image",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_scr8puscr8puscr8-clean.png",
+            "image": "shopify://shop_images/shower2.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
@@ -187,7 +187,7 @@
           "type": "image",
           "name": "t:names.image",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_tvt09ltvt09ltvt0-clean.png",
+            "image": "shopify://shop_images/shower3.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
@@ -211,7 +211,7 @@
           "type": "image",
           "name": "t:names.image",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_6kyucc6kyucc6kyu-clean.png",
+            "image": "shopify://shop_images/shower4.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
@@ -235,31 +235,7 @@
           "type": "image",
           "name": "t:names.image",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_zgzei9zgzei9zgze-clean.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "image_rA4BkL": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_ut2behut2behut2b-clean.png",
+            "image": "shopify://shop_images/shower5.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
@@ -611,8 +587,7 @@
         "image_rXeWGp",
         "image_6bAkNt",
         "image_6wkmt9",
-        "image_NMxagE",
-        "image_rA4BkL"
+        "image_NMxagE"
       ],
       "settings": {
         "content_width": "content-center-aligned",
@@ -635,7 +610,7 @@
             "show_sample_reviews": false,
             "reviews_selection": "all",
             "products": [
-              "muslim-shower"
+              "sanicore™-stainless-steel-imported-rain-shower"
             ],
             "star_rating": "5_star",
             "show_review_media": true,
@@ -669,7 +644,7 @@
             "show_sample_reviews": false,
             "reviews_selection": "all",
             "products": [
-              "muslim-shower"
+              "sanicore™-stainless-steel-imported-rain-shower"
             ],
             "star_rating": "all",
             "review_type": "photo_and_video",
