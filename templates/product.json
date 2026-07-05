@@ -34,11 +34,11 @@
             "padding": 10,
             "border_radius": 14,
             "spacing": 20,
-            "heading_size": 22,
-            "number_size": 60,
+            "heading_size": 16,
+            "number_size": 40,
             "label_size": 10,
-            "message_size": 16,
-            "unit_width": 90
+            "message_size": 14,
+            "unit_width": 70
           },
           "blocks": {}
         }
