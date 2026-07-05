@@ -932,15 +932,15 @@
         "padding-block-end": 48
       }
     },
-    "178234424178aec776": {
+    "blocks_DBGgXc": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_4ffce22_MBKkUW": {
+        "ai_gen_block_4ffce22_6ffYxV": {
           "type": "ai_gen_block_4ffce22",
           "settings": {
-            "end_date": "2027-12-31",
+            "end_date": "2027-06-31",
             "end_time": "23:59:59",
-            "heading": "Limited time offer",
+            "heading": "8 LEFT IN STOCK",
             "expired_message": "This offer has ended",
             "show_days": false,
             "label_days": "Days",
@@ -952,37 +952,38 @@
             "label_seconds": "Seconds",
             "desktop_width_percent": 100,
             "background_color": "#000000",
-            "text_color": "#ffffff",
-            "number_color": "#ffffff",
-            "padding": 30,
+            "text_color": "#F3EC28",
+            "number_color": "#F3EC28",
+            "padding": 10,
             "border_radius": 14,
             "spacing": 20,
-            "heading_size": 24,
-            "number_size": 48,
-            "label_size": 12,
-            "message_size": 16,
-            "unit_width": 80
+            "heading_size": 16,
+            "number_size": 40,
+            "label_size": 10,
+            "message_size": 14,
+            "unit_width": 70
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_4ffce22_MBKkUW"
+        "ai_gen_block_4ffce22_6ffYxV"
       ],
+      "name": "Urgency timer",
       "settings": {
         "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
+        "vertical_on_mobile": false,
+        "horizontal_alignment": "flex-end",
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
+        "vertical_alignment_flex_direction_column": "space-between",
+        "gap": 5,
         "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
+        "section_height": "custom",
+        "section_height_custom": 0,
         "background_media": "none",
-        "background_color": "",
+        "background_color": "{{ settings.color_palette.background }}",
         "video_position": "cover",
         "background_image_position": "cover",
         "toggle_overlay": false,
@@ -994,8 +995,8 @@
         "border_opacity": 100,
         "border_color": "",
         "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 12,
+        "padding-block-end": 10
       }
     }
   },
@@ -1004,6 +1005,6 @@
     "main",
     "1782089515dbc4c2f5",
     "product_recommendations_qggXJq",
-    "178234424178aec776"
+    "blocks_DBGgXc"
   ]
 }
