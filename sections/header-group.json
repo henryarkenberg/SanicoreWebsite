@@ -17,8 +17,8 @@
         "ai_gen_block_9e7c74e_WpHqUE": {
           "type": "ai_gen_block_9e7c74e",
           "settings": {
-            "main_text": "SUMMER SALE - ONLY FEW DAYS LEFT",
-            "subtext": "BUY 3 - GET ONE FREE 📦",
+            "main_text": "SUMMER SALE ONLY FEW HOURS",
+            "subtext": "LEFT, BUY 3 - GET ONE FREE 📦",
             "main_text_font": "assistant_n7",
             "main_text_size": 19,
             "main_text_color": "#000000",
@@ -74,11 +74,11 @@
         "text": "FREE DELIVERY ON MORE THAN 2500/-",
         "bg_color_1": "#071520",
         "bg_color_2": "#353562",
-        "bg_color_3": "#3D3D50",
+        "bg_color_3": "#3d3d50",
         "sweep_color": "#244436",
-        "text_color_1": "#64C799",
-        "text_color_2": "#6AB4C6",
-        "text_color_3": "#FFFFFF",
+        "text_color_1": "#64c799",
+        "text_color_2": "#6ab4c6",
+        "text_color_3": "#ffffff",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
