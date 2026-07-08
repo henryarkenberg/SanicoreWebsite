@@ -576,6 +576,7 @@
             "image_tdf8PE": {
               "type": "image",
               "name": "t:names.image",
+              "disabled": true,
               "settings": {
                 "image": "shopify://shop_images/Gemini_Generated_Image_s6mucfs6mucfs6mu-clean.png",
                 "link": "",
@@ -600,6 +601,7 @@
             "image_ihTpfp": {
               "type": "image",
               "name": "t:names.image",
+              "disabled": true,
               "settings": {
                 "image": "shopify://shop_images/e4bb9215a0b24e449c6928490517d867.png",
                 "link": "",
@@ -624,6 +626,7 @@
             "image_kFqqc7": {
               "type": "image",
               "name": "t:names.image",
+              "disabled": true,
               "settings": {
                 "image": "shopify://shop_images/Gemini_Generated_Image_zp4y1zp4y1zp4y1z-clean.png",
                 "link": "",
