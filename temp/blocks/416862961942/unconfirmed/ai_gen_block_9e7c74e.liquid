@@ -1,6 +1,273 @@
+{% doc %}
+  @prompt
+    A simple white announcement bar with no movement or change. It should simply be able to hold a main text and some subtext. Each with their own font settings. Also add a cross button to the right side of it. There should also be an option to make it "sticky"
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-announcement-bar-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+    {% if block.settings.sticky %}
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    {% endif %}
+  }
+
+  .ai-announcement-bar-container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-announcement-bar-content-{{ ai_gen_id }} {
+    flex: 1;
+    text-align: center;
+  }
+
+  .ai-announcement-bar-main-text-{{ ai_gen_id }} {
+    margin: 0;
+    color: {{ block.settings.main_text_color }};
+    font-family: {{ block.settings.main_text_font.family }}, {{ block.settings.main_text_font.fallback_families }};
+    font-weight: {{ block.settings.main_text_font.weight }};
+    font-size: {{ block.settings.main_text_size }}px;
+    line-height: 1.4;
+  }
+
+  .ai-announcement-bar-subtext-{{ ai_gen_id }} {
+    margin: 4px 0 0 0;
+    color: {{ block.settings.subtext_color }};
+    font-family: {{ block.settings.subtext_font.family }}, {{ block.settings.subtext_font.fallback_families }};
+    font-weight: {{ block.settings.subtext_font.weight }};
+    font-size: {{ block.settings.subtext_size }}px;
+    line-height: 1.4;
+  }
+
+  .ai-announcement-bar-close-{{ ai_gen_id }} {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ block.settings.close_button_color }};
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .ai-announcement-bar-close-{{ ai_gen_id }}:hover {
+    opacity: 0.7;
+  }
+
+  .ai-announcement-bar-close-{{ ai_gen_id }} svg {
+    width: {{ block.settings.close_button_size }}px;
+    height: {{ block.settings.close_button_size }}px;
+  }
+
+  .ai-announcement-bar-{{ ai_gen_id }}.hidden {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-announcement-bar-main-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.main_text_size | times: 0.85 }}px;
+    }
+
+    .ai-announcement-bar-subtext-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subtext_size | times: 0.85 }}px;
+    }
+  }
+{% endstyle %}
+
+<announcement-bar-{{ ai_gen_id }} class="ai-announcement-bar-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-announcement-bar-container-{{ ai_gen_id }}">
+    <div class="ai-announcement-bar-content-{{ ai_gen_id }}">
+      {% if block.settings.main_text != blank %}
+        <p class="ai-announcement-bar-main-text-{{ ai_gen_id }}">{{ block.settings.main_text }}</p>
+      {% endif %}
+      {% if block.settings.subtext != blank %}
+        <p class="ai-announcement-bar-subtext-{{ ai_gen_id }}">{{ block.settings.subtext }}</p>
+      {% endif %}
+    </div>
+    <button
+      class="ai-announcement-bar-close-{{ ai_gen_id }}"
+      aria-label="Close announcement"
+      type="button"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</announcement-bar-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AnnouncementBar{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.closeButton = this.querySelector('.ai-announcement-bar-close-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        if (this.closeButton) {
+          this.closeButton.addEventListener('click', () => {
+            this.classList.add('hidden');
+          });
+        }
+      }
+    }
+
+    customElements.define('announcement-bar-{{ ai_gen_id }}', AnnouncementBar{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Announcement bar",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Main text",
+      "default": "Free shipping on orders over $50"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Limited time offer"
+    },
+    {
+      "type": "header",
+      "content": "Main text style"
+    },
+    {
+      "type": "font_picker",
+      "id": "main_text_font",
+      "label": "Font",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "range",
+      "id": "main_text_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "main_text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Subtext style"
+    },
+    {
+      "type": "font_picker",
+      "id": "subtext_font",
+      "label": "Font",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "range",
+      "id": "subtext_size",
+      "label": "Font size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Text color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Bar style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical padding",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 8,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Make sticky",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Close button"
+    },
+    {
+      "type": "color",
+      "id": "close_button_color",
+      "label": "Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "close_button_size",
+      "label": "Size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
+}
 {% endschema %}
