@@ -42,6 +42,7 @@
         "text_JKcd87": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
             "text": "<p>Luxury sanitary fixtures, designed with precision for the rituals of daily life.</p>",
             "width": "fit-content",
@@ -94,7 +95,7 @@
         "section_height": "full-screen",
         "section_height_custom": 50,
         "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
+        "toggle_overlay": false,
         "overlay_color": "#12121266",
         "overlay_style": "solid",
         "gradient_direction": "to bottom",
