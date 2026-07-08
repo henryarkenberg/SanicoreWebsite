@@ -28,7 +28,7 @@
             "background_color": "#ffffff",
             "padding_vertical": 8,
             "padding_horizontal": 20,
-            "sticky": false,
+            "sticky": true,
             "close_button_color": "#000000",
             "close_button_size": 20
           },
