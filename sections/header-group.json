@@ -15,14 +15,14 @@
       "type": "announcement-bar",
       "name": "Futuristic Announcement",
       "settings": {
-        "text": "Fastest shipping on all orders — 25% OFF",
-        "bg_color_1": "{{ settings.color_palette.background }}",
-        "bg_color_2": "#cbcbe4",
-        "bg_color_3": "#acacc0",
-        "sweep_color": "#b1d8c6",
-        "text_color_1": "#005f33",
-        "text_color_2": "#005c73",
-        "text_color_3": "#490985",
+        "text": "FREE DELIVERY ON MORE THAN 2500/-",
+        "bg_color_1": "#071520",
+        "bg_color_2": "#353562",
+        "bg_color_3": "#3D3D50",
+        "sweep_color": "#244436",
+        "text_color_1": "#64C799",
+        "text_color_2": "#6AB4C6",
+        "text_color_3": "#FFFFFF",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
