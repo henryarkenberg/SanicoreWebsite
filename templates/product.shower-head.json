@@ -29,8 +29,8 @@
             "label_seconds": "Seconds",
             "desktop_width_percent": 100,
             "background_color": "#000000",
-            "text_color": "#F3EC28",
-            "number_color": "#F3EC28",
+            "text_color": "#f3ec28",
+            "number_color": "#f3ec28",
             "padding": 10,
             "border_radius": 14,
             "spacing": 20,
@@ -279,7 +279,7 @@
             "hide_variants": true,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 0,
+            "padding-inline-start": 39,
             "padding-inline-end": 0
           },
           "blocks": {}
@@ -308,7 +308,7 @@
             "padding-block-start": 24,
             "padding-block-end": 24,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 39
           },
           "blocks": {
             "group_icgrde": {
@@ -877,8 +877,8 @@
             "label_seconds": "Seconds",
             "desktop_width_percent": 100,
             "background_color": "#000000",
-            "text_color": "#F3EC28",
-            "number_color": "#F3EC28",
+            "text_color": "#f3ec28",
+            "number_color": "#f3ec28",
             "padding": 10,
             "border_radius": 14,
             "spacing": 20,
