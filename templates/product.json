@@ -433,8 +433,9 @@
             "divider_VJhene": {
               "type": "_divider",
               "name": "t:names.divider",
+              "disabled": true,
               "settings": {
-                "thickness": 1,
+                "thickness": 0.5,
                 "corner_radius": "square",
                 "divider_color": "{{ settings.color_palette.color2 }}",
                 "width_percent": 100,
@@ -465,6 +466,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "judge_me_reviews_preview_badge_rnnCMV": {
+              "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+              "settings": {}
             },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
@@ -645,6 +650,7 @@
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
+            "judge_me_reviews_preview_badge_rnnCMV",
             "buy_buttons_eYQEYi",
             "ai_gen_block_f39eb41_mj88yC",
             "text_aEtTtq",
