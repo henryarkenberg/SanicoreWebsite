@@ -98,6 +98,39 @@
           },
           "blocks": {}
         },
+        "ai_gen_block_f5f9b50_Kit63i": {
+          "type": "ai_gen_block_f5f9b50",
+          "settings": {
+            "desktop_width_percent": 100,
+            "background_color": "#E6FFF3",
+            "outline_color": "#059669",
+            "corner_radius": 16,
+            "glow_intensity": 15,
+            "padding": 32,
+            "padding_mobile": 24,
+            "title": "Why",
+            "title_color": "#000000",
+            "subtitle": "Sanicore",
+            "subtitle_color": "#059669",
+            "item_1_text": "1 Year Warranty",
+            "item_1_color": "#000000",
+            "item_2_text": "Leak-Proof Body",
+            "item_2_color": "#000000",
+            "item_3_text": "Rustproof",
+            "item_3_color": "#000000",
+            "item_4_text": "Stainless Steel",
+            "item_4_color": "#000000",
+            "item_5_text": "Easy Installation",
+            "item_5_color": "#000000",
+            "item_6_text": "360° Flexible Hose",
+            "item_6_color": "#000000",
+            "item_7_text": "",
+            "item_7_color": "#000000",
+            "item_8_text": "",
+            "item_8_color": "#000000"
+          },
+          "blocks": {}
+        },
         "comparison_slider_HWRbyc": {
           "type": "comparison-slider",
           "name": "t:names.comparison_slider",
@@ -588,6 +621,7 @@
       },
       "block_order": [
         "disclosures_g9mWze",
+        "ai_gen_block_f5f9b50_Kit63i",
         "comparison_slider_HWRbyc",
         "image_HtVbja",
         "image_rXeWGp",
@@ -609,44 +643,6 @@
     },
     "178358935974a205af": {
       "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_f5f9b50_FQGDwE": {
-          "type": "ai_gen_block_f5f9b50",
-          "settings": {
-            "desktop_width_percent": 100,
-            "background_color": "#E6FFF3",
-            "outline_color": "#059669",
-            "corner_radius": 16,
-            "glow_intensity": 15,
-            "padding": 32,
-            "padding_mobile": 24,
-            "title": "Why",
-            "title_color": "#000000",
-            "subtitle": "Sanicore",
-            "subtitle_color": "#059669",
-            "item_1_text": "1 Year Warranty",
-            "item_1_color": "#000000",
-            "item_2_text": "Leak-Proof Body",
-            "item_2_color": "#000000",
-            "item_3_text": "Rustproof",
-            "item_3_color": "#000000",
-            "item_4_text": "Stainless Steel",
-            "item_4_color": "#000000",
-            "item_5_text": "Easy Installation",
-            "item_5_color": "#000000",
-            "item_6_text": "360° Flexible Hose",
-            "item_6_color": "#000000",
-            "item_7_text": "",
-            "item_7_color": "#000000",
-            "item_8_text": "",
-            "item_8_color": "#000000"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_f5f9b50_FQGDwE"
-      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
