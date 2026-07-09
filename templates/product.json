@@ -136,30 +136,6 @@
           },
           "blocks": {}
         },
-        "image_HtVbja": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_t0qkt3t0qkt3t0qk-clean.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "image_rXeWGp": {
           "type": "image",
           "name": "t:names.image",
@@ -213,54 +189,6 @@
           "name": "t:names.image",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_6kyucc6kyucc6kyu-clean.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "image_NMxagE": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_zgzei9zgzei9zgze-clean.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "image_rA4BkL": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_ut2behut2behut2b-clean.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
@@ -828,12 +756,9 @@
       "block_order": [
         "disclosures_g9mWze",
         "comparison_slider_HWRbyc",
-        "image_HtVbja",
         "image_rXeWGp",
         "image_6bAkNt",
-        "image_6wkmt9",
-        "image_NMxagE",
-        "image_rA4BkL"
+        "image_6wkmt9"
       ],
       "settings": {
         "content_width": "content-center-aligned",
