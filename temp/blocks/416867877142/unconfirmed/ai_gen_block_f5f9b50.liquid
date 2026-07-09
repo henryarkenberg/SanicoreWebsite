@@ -1,6 +1,453 @@
+{% doc %}
+  @prompt
+    A box with a customizable corner radius, and customizable color. It should have a glow behind the box of the same color it is. The background color should be different customizable color than the outline color.
+    Inside it, it should say "Why" followed by some customizable text. We should also be able to change the color of this customizable text.
+    In the body of this box, we should have check icons (round with white checks inside) and should have text infront of them that are customizable in text, and color. User should be able to add as many as they please, the box should grow accordingly. , Can we add configurable padding to the box, Allow for editing the "Why" text aswell
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-why-box-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    border: 2px solid {{ block.settings.outline_color }};
+    border-radius: {{ block.settings.corner_radius }}px;
+    padding: {{ block.settings.padding }}px;
+    box-shadow: 0 0 {{ block.settings.glow_intensity }}px {{ block.settings.outline_color }};
+  }
+
+  .ai-why-box-header-{{ ai_gen_id }} {
+    margin-bottom: 24px;
+  }
+
+  .ai-why-box-title-{{ ai_gen_id }} {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    color: {{ block.settings.title_color }};
+  }
+
+  .ai-why-box-subtitle-{{ ai_gen_id }} {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    color: {{ block.settings.subtitle_color }};
+  }
+
+  .ai-why-box-items-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ai-why-box-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ai-why-box-check-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: {{ block.settings.outline_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-why-box-check-{{ ai_gen_id }} svg {
+    width: 14px;
+    height: 14px;
+    stroke: #ffffff;
+    stroke-width: 3;
+    fill: none;
+  }
+
+  .ai-why-box-text-{{ ai_gen_id }} {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-why-box-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_mobile }}px;
+    }
+
+    .ai-why-box-title-{{ ai_gen_id }},
+    .ai-why-box-subtitle-{{ ai_gen_id }} {
+      font-size: 24px;
+    }
+
+    .ai-why-box-text-{{ ai_gen_id }} {
+      font-size: 14px;
+    }
+  }
+{% endstyle %}
+
+<why-box-{{ ai_gen_id }} class="ai-why-box-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-why-box-header-{{ ai_gen_id }}">
+    {% if block.settings.title != blank %}
+      <h3 class="ai-why-box-title-{{ ai_gen_id }}">{{ block.settings.title }}</h3>
+    {% endif %}
+    {% if block.settings.subtitle != blank %}
+      <h3 class="ai-why-box-subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</h3>
+    {% endif %}
+  </div>
+
+  <div class="ai-why-box-items-{{ ai_gen_id }}">
+    {% if block.settings.item_1_text != blank %}
+      <div class="ai-why-box-item-{{ ai_gen_id }}">
+        <div class="ai-why-box-check-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-why-box-text-{{ ai_gen_id }}" style="color: {{ block.settings.item_1_color }};">
+          {{ block.settings.item_1_text }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if block.settings.item_2_text != blank %}
+      <div class="ai-why-box-item-{{ ai_gen_id }}">
+        <div class="ai-why-box-check-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-why-box-text-{{ ai_gen_id }}" style="color: {{ block.settings.item_2_color }};">
+          {{ block.settings.item_2_text }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if block.settings.item_3_text != blank %}
+      <div class="ai-why-box-item-{{ ai_gen_id }}">
+        <div class="ai-why-box-check-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-why-box-text-{{ ai_gen_id }}" style="color: {{ block.settings.item_3_color }};">
+          {{ block.settings.item_3_text }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if block.settings.item_4_text != blank %}
+      <div class="ai-why-box-item-{{ ai_gen_id }}">
+        <div class="ai-why-box-check-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-why-box-text-{{ ai_gen_id }}" style="color: {{ block.settings.item_4_color }};">
+          {{ block.settings.item_4_text }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if block.settings.item_5_text != blank %}
+      <div class="ai-why-box-item-{{ ai_gen_id }}">
+        <div class="ai-why-box-check-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-why-box-text-{{ ai_gen_id }}" style="color: {{ block.settings.item_5_color }};">
+          {{ block.settings.item_5_text }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if block.settings.item_6_text != blank %}
+      <div class="ai-why-box-item-{{ ai_gen_id }}">
+        <div class="ai-why-box-check-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-why-box-text-{{ ai_gen_id }}" style="color: {{ block.settings.item_6_color }};">
+          {{ block.settings.item_6_text }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if block.settings.item_7_text != blank %}
+      <div class="ai-why-box-item-{{ ai_gen_id }}">
+        <div class="ai-why-box-check-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-why-box-text-{{ ai_gen_id }}" style="color: {{ block.settings.item_7_color }};">
+          {{ block.settings.item_7_text }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if block.settings.item_8_text != blank %}
+      <div class="ai-why-box-item-{{ ai_gen_id }}">
+        <div class="ai-why-box-check-{{ ai_gen_id }}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-why-box-text-{{ ai_gen_id }}" style="color: {{ block.settings.item_8_color }};">
+          {{ block.settings.item_8_text }}
+        </p>
+      </div>
+    {% endif %}
+  </div>
+</why-box-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class WhyBox{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('why-box-{{ ai_gen_id }}', WhyBox{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Why box",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Box style"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "outline_color",
+      "label": "Outline color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "glow_intensity",
+      "label": "Glow intensity",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding (desktop)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "label": "Padding (mobile)",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title text",
+      "default": "Why"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle text",
+      "default": "Choose Us?"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "text",
+      "id": "item_1_text",
+      "label": "Text",
+      "default": "Premium quality materials"
+    },
+    {
+      "type": "color",
+      "id": "item_1_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "text",
+      "id": "item_2_text",
+      "label": "Text",
+      "default": "Fast and reliable shipping"
+    },
+    {
+      "type": "color",
+      "id": "item_2_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "text",
+      "id": "item_3_text",
+      "label": "Text",
+      "default": "30-day money-back guarantee"
+    },
+    {
+      "type": "color",
+      "id": "item_3_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Item 4"
+    },
+    {
+      "type": "text",
+      "id": "item_4_text",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "item_4_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Item 5"
+    },
+    {
+      "type": "text",
+      "id": "item_5_text",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "item_5_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Item 6"
+    },
+    {
+      "type": "text",
+      "id": "item_6_text",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "item_6_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Item 7"
+    },
+    {
+      "type": "text",
+      "id": "item_7_text",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "item_7_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Item 8"
+    },
+    {
+      "type": "text",
+      "id": "item_8_text",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "item_8_color",
+      "label": "Text color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why box"
+    }
+  ],
+  "tag": null
+}
 {% endschema %}
