@@ -522,6 +522,39 @@
               },
               "blocks": {}
             },
+            "ai_gen_block_f5f9b50_JABt8e": {
+              "type": "ai_gen_block_f5f9b50",
+              "settings": {
+                "desktop_width_percent": 100,
+                "background_color": "#E6FFF3",
+                "outline_color": "#059669",
+                "corner_radius": 16,
+                "glow_intensity": 15,
+                "padding": 32,
+                "padding_mobile": 24,
+                "title": "Why",
+                "title_color": "#000000",
+                "subtitle": "Sanicore",
+                "subtitle_color": "#059669",
+                "item_1_text": "1 Year Warranty",
+                "item_1_color": "#000000",
+                "item_2_text": "Leak-Proof Body",
+                "item_2_color": "#000000",
+                "item_3_text": "Rustproof",
+                "item_3_color": "#000000",
+                "item_4_text": "Stainless Steel",
+                "item_4_color": "#000000",
+                "item_5_text": "Easy Installation",
+                "item_5_color": "#000000",
+                "item_6_text": "360° Flexible Hose",
+                "item_6_color": "#000000",
+                "item_7_text": "",
+                "item_7_color": "#000000",
+                "item_8_text": "",
+                "item_8_color": "#000000"
+              },
+              "blocks": {}
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -573,7 +606,7 @@
               },
               "blocks": {}
             },
-            "ai_gen_block_f5f9b50_JABt8e": {
+            "ai_gen_block_f5f9b50_9EnARQ": {
               "type": "ai_gen_block_f5f9b50",
               "settings": {
                 "desktop_width_percent": 100,
@@ -583,21 +616,21 @@
                 "glow_intensity": 15,
                 "padding": 32,
                 "padding_mobile": 24,
-                "title": "Why",
+                "title": "💎 What’s in the Box",
                 "title_color": "#000000",
-                "subtitle": "Sanicore",
+                "subtitle": "",
                 "subtitle_color": "#059669",
-                "item_1_text": "1 Year Warranty",
+                "item_1_text": "Original 304 SS Shower Head",
                 "item_1_color": "#000000",
-                "item_2_text": "Leak-Proof Body",
+                "item_2_text": "360° Triple Layer Hose Pipe",
                 "item_2_color": "#000000",
-                "item_3_text": "Rustproof",
+                "item_3_text": "Wall Mount Holder",
                 "item_3_color": "#000000",
-                "item_4_text": "Stainless Steel",
+                "item_4_text": "Brass Bolts & Fittings",
                 "item_4_color": "#000000",
-                "item_5_text": "Easy Installation",
+                "item_5_text": "",
                 "item_5_color": "#000000",
-                "item_6_text": "360° Flexible Hose",
+                "item_6_text": "",
                 "item_6_color": "#000000",
                 "item_7_text": "",
                 "item_7_color": "#000000",
@@ -614,9 +647,10 @@
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "ai_gen_block_f39eb41_mj88yC",
+            "ai_gen_block_f5f9b50_JABt8e",
             "text_aEtTtq",
             "image_tdf8PE",
-            "ai_gen_block_f5f9b50_JABt8e"
+            "ai_gen_block_f5f9b50_9EnARQ"
           ]
         }
       },
