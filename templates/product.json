@@ -547,32 +547,6 @@
               },
               "blocks": {}
             },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
-              "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "ai_gen_block_f5f9b50_B3JHkD": {
               "type": "ai_gen_block_f5f9b50",
               "name": "Why box",
@@ -604,6 +578,32 @@
                 "item_7_color": "#000000",
                 "item_8_text": "",
                 "item_8_color": "#000000"
+              },
+              "blocks": {}
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -681,6 +681,40 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ai_gen_block_f5f9b50_8QqVEe": {
+              "type": "ai_gen_block_f5f9b50",
+              "name": "Why box",
+              "settings": {
+                "desktop_width_percent": 100,
+                "background_color": "#E9E6FF",
+                "outline_color": "#270596",
+                "corner_radius": 16,
+                "glow_intensity": 15,
+                "padding": 32,
+                "padding_mobile": 24,
+                "title": "💎 What’s in the Box",
+                "title_color": "#000000",
+                "subtitle": "",
+                "subtitle_color": "#059669",
+                "item_1_text": "Original 304 SS Shower Head",
+                "item_1_color": "#000000",
+                "item_2_text": "360° Triple Layer Hose Pipe",
+                "item_2_color": "#000000",
+                "item_3_text": "Wall Mount Holder",
+                "item_3_color": "#000000",
+                "item_4_text": "Brass Bolts & Fittings",
+                "item_4_color": "#000000",
+                "item_5_text": "",
+                "item_5_color": "#000000",
+                "item_6_text": "",
+                "item_6_color": "#000000",
+                "item_7_text": "",
+                "item_7_color": "#000000",
+                "item_8_text": "",
+                "item_8_color": "#000000"
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -690,11 +724,12 @@
             "judge_me_reviews_preview_badge_rnnCMV",
             "buy_buttons_eYQEYi",
             "ai_gen_block_f39eb41_mj88yC",
-            "text_aEtTtq",
             "ai_gen_block_f5f9b50_B3JHkD",
+            "text_aEtTtq",
             "image_tdf8PE",
             "image_ihTpfp",
-            "image_kFqqc7"
+            "image_kFqqc7",
+            "ai_gen_block_f5f9b50_8QqVEe"
           ]
         }
       },
