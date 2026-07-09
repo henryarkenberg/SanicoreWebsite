@@ -607,6 +607,75 @@
         "padding-block-end": 0
       }
     },
+    "178358935974a205af": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f5f9b50_FQGDwE": {
+          "type": "ai_gen_block_f5f9b50",
+          "settings": {
+            "desktop_width_percent": 100,
+            "background_color": "#E6FFF3",
+            "outline_color": "#059669",
+            "corner_radius": 16,
+            "glow_intensity": 15,
+            "padding": 32,
+            "padding_mobile": 24,
+            "title": "Why",
+            "title_color": "#000000",
+            "subtitle": "Sanicore",
+            "subtitle_color": "#059669",
+            "item_1_text": "1 Year Warranty",
+            "item_1_color": "#000000",
+            "item_2_text": "Leak-Proof Body",
+            "item_2_color": "#000000",
+            "item_3_text": "Rustproof",
+            "item_3_color": "#000000",
+            "item_4_text": "Stainless Steel",
+            "item_4_color": "#000000",
+            "item_5_text": "Easy Installation",
+            "item_5_color": "#000000",
+            "item_6_text": "360° Flexible Hose",
+            "item_6_color": "#000000",
+            "item_7_text": "",
+            "item_7_color": "#000000",
+            "item_8_text": "",
+            "item_8_color": "#000000"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f5f9b50_FQGDwE"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 34,
+        "padding-block-end": 34
+      }
+    },
     "1782089515dbc4c2f5": {
       "type": "_blocks",
       "blocks": {
@@ -934,6 +1003,7 @@
   "order": [
     "blocks_EmGExQ",
     "main",
+    "178358935974a205af",
     "1782089515dbc4c2f5",
     "product_recommendations_qggXJq",
     "blocks_tq9xUE"
