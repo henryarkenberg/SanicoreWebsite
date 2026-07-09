@@ -610,8 +610,8 @@
               "type": "ai_gen_block_f5f9b50",
               "settings": {
                 "desktop_width_percent": 100,
-                "background_color": "#E6FFF3",
-                "outline_color": "#059669",
+                "background_color": "#E9E6FF",
+                "outline_color": "#270596",
                 "corner_radius": 16,
                 "glow_intensity": 15,
                 "padding": 32,
