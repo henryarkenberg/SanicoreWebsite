@@ -1053,73 +1053,6 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "blocks_tq9xUE": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_4ffce22_hRcUNU": {
-          "type": "ai_gen_block_4ffce22",
-          "settings": {
-            "end_date": "2027-06-31",
-            "end_time": "23:59:59",
-            "heading": "8 LEFT IN STOCK",
-            "expired_message": "This offer has ended",
-            "show_days": false,
-            "label_days": "Days",
-            "show_hours": false,
-            "label_hours": "Hours",
-            "show_minutes": true,
-            "label_minutes": "Minutes",
-            "show_seconds": true,
-            "label_seconds": "Seconds",
-            "desktop_width_percent": 100,
-            "background_color": "#000000",
-            "text_color": "#f3ec28",
-            "number_color": "#f3ec28",
-            "padding": 10,
-            "border_radius": 14,
-            "spacing": 20,
-            "heading_size": 16,
-            "number_size": 40,
-            "label_size": 10,
-            "message_size": 14,
-            "unit_width": 70
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_4ffce22_hRcUNU"
-      ],
-      "name": "Urgency timer",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": false,
-        "horizontal_alignment": "flex-end",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "space-between",
-        "gap": 5,
-        "section_width": "page-width",
-        "section_height": "custom",
-        "section_height_custom": 0,
-        "background_media": "none",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 12,
-        "padding-block-end": 10
-      }
     }
   },
   "order": [
@@ -1127,7 +1060,6 @@
     "main",
     "178358935974a205af",
     "1782089515dbc4c2f5",
-    "product_recommendations_qggXJq",
-    "blocks_tq9xUE"
+    "product_recommendations_qggXJq"
   ]
 }
