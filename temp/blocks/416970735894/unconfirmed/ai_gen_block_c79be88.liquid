@@ -1,6 +1,527 @@
+{% doc %}
+  @prompt
+    A horizontally long block that has:
+    - A timer block to count down to a specific date and time. Allow me to select what to show from the countdown (minutes, hours, etc)
+    - A Heading Text
+    - 3 blocks of subtext
+    - An exclamation mark that shakes (acts as a main icon in the left side of the block)
+    - Glowing outline setting
+    - Allow us to change all colors of everything in this block.
+    - Allow us to give margins on all four sides.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-countdown-banner-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ai-countdown-banner-container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    margin-top: {{ block.settings.margin_top }}px;
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+    margin-left: {{ block.settings.margin_left }}px;
+    margin-right: {{ block.settings.margin_right }}px;
+    {% if block.settings.enable_glow %}
+      box-shadow: 0 0 {{ block.settings.glow_intensity }}px {{ block.settings.glow_color }};
+    {% endif %}
+  }
+
+  .ai-countdown-banner-icon-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: ai-countdown-shake-{{ ai_gen_id }} 0.5s ease-in-out infinite;
+  }
+
+  .ai-countdown-banner-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: {{ block.settings.icon_color }};
+  }
+
+  @keyframes ai-countdown-shake-{{ ai_gen_id }} {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-10deg);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+  }
+
+  .ai-countdown-banner-content-{{ ai_gen_id }} {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-countdown-banner-heading-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    font-weight: 600;
+  }
+
+  .ai-countdown-banner-timer-{{ ai_gen_id }} {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .ai-countdown-banner-timer-unit-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .ai-countdown-banner-timer-value-{{ ai_gen_id }} {
+    font-size: {{ block.settings.timer_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.timer_color }};
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .ai-countdown-banner-timer-label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.timer_label_size }}px;
+    color: {{ block.settings.timer_label_color }};
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-countdown-banner-subtext-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ai-countdown-banner-subtext-item-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subtext_size }}px;
+    color: {{ block.settings.subtext_color }};
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-countdown-banner-container-{{ ai_gen_id }} {
+      flex-direction: column;
+      text-align: center;
+      padding: 15px 20px;
+      gap: 15px;
+    }
+
+    .ai-countdown-banner-timer-{{ ai_gen_id }} {
+      justify-content: center;
+    }
+
+    .ai-countdown-banner-icon-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.8 }}px;
+      height: {{ block.settings.icon_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<countdown-banner-{{ ai_gen_id }}
+  class="ai-countdown-banner-{{ ai_gen_id }}"
+  data-end-date="{{ block.settings.countdown_date }}"
+  data-end-time="{{ block.settings.countdown_time }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-countdown-banner-container-{{ ai_gen_id }}">
+    <div class="ai-countdown-banner-icon-{{ ai_gen_id }}">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 2C12.5523 2 13 2.44772 13 3V4C13 4.55228 12.5523 5 12 5C11.4477 5 11 4.55228 11 4V3C11 2.44772 11.4477 2 12 2Z"/>
+        <path d="M12 7C12.5523 7 13 7.44772 13 8V14C13 14.5523 12.5523 15 12 15C11.4477 15 11 14.5523 11 14V8C11 7.44772 11.4477 7 12 7Z"/>
+        <path d="M12 17C12.5523 17 13 17.4477 13 18V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V18C11 17.4477 11.4477 17 12 17Z"/>
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+
+    <div class="ai-countdown-banner-content-{{ ai_gen_id }}">
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-countdown-banner-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+      {% endif %}
+
+      <div class="ai-countdown-banner-timer-{{ ai_gen_id }}">
+        {% if block.settings.show_days %}
+          <div class="ai-countdown-banner-timer-unit-{{ ai_gen_id }}">
+            <div class="ai-countdown-banner-timer-value-{{ ai_gen_id }}" data-days>00</div>
+            <div class="ai-countdown-banner-timer-label-{{ ai_gen_id }}">Days</div>
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_hours %}
+          <div class="ai-countdown-banner-timer-unit-{{ ai_gen_id }}">
+            <div class="ai-countdown-banner-timer-value-{{ ai_gen_id }}" data-hours>00</div>
+            <div class="ai-countdown-banner-timer-label-{{ ai_gen_id }}">Hours</div>
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_minutes %}
+          <div class="ai-countdown-banner-timer-unit-{{ ai_gen_id }}">
+            <div class="ai-countdown-banner-timer-value-{{ ai_gen_id }}" data-minutes>00</div>
+            <div class="ai-countdown-banner-timer-label-{{ ai_gen_id }}">Min</div>
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_seconds %}
+          <div class="ai-countdown-banner-timer-unit-{{ ai_gen_id }}">
+            <div class="ai-countdown-banner-timer-value-{{ ai_gen_id }}" data-seconds>00</div>
+            <div class="ai-countdown-banner-timer-label-{{ ai_gen_id }}">Sec</div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-countdown-banner-subtext-{{ ai_gen_id }}">
+        {% if block.settings.subtext_1 != blank %}
+          <p class="ai-countdown-banner-subtext-item-{{ ai_gen_id }}">{{ block.settings.subtext_1 }}</p>
+        {% endif %}
+        {% if block.settings.subtext_2 != blank %}
+          <p class="ai-countdown-banner-subtext-item-{{ ai_gen_id }}">{{ block.settings.subtext_2 }}</p>
+        {% endif %}
+        {% if block.settings.subtext_3 != blank %}
+          <p class="ai-countdown-banner-subtext-item-{{ ai_gen_id }}">{{ block.settings.subtext_3 }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</countdown-banner-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class CountdownBanner{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.endDate = this.dataset.endDate;
+        this.endTime = this.dataset.endTime;
+        this.interval = null;
+      }
+
+      connectedCallback() {
+        this.startCountdown();
+      }
+
+      disconnectedCallback() {
+        if (this.interval) {
+          clearInterval(this.interval);
+        }
+      }
+
+      startCountdown() {
+        if (!this.endDate || !this.endTime) {
+          return;
+        }
+
+        const endDateTime = new Date(this.endDate + 'T' + this.endTime).getTime();
+
+        this.interval = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = endDateTime - now;
+
+          if (distance < 0) {
+            clearInterval(this.interval);
+            this.updateDisplay(0, 0, 0, 0);
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          this.updateDisplay(days, hours, minutes, seconds);
+        }, 1000);
+      }
+
+      updateDisplay(days, hours, minutes, seconds) {
+        const daysEl = this.querySelector('[data-days]');
+        const hoursEl = this.querySelector('[data-hours]');
+        const minutesEl = this.querySelector('[data-minutes]');
+        const secondsEl = this.querySelector('[data-seconds]');
+
+        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+      }
+    }
+
+    customElements.define('countdown-banner-{{ ai_gen_id }}', CountdownBanner{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Countdown banner",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Countdown settings"
+    },
+    {
+      "type": "text",
+      "id": "countdown_date",
+      "label": "End date",
+      "default": "2026-12-31",
+      "info": "Format: YYYY-MM-DD"
+    },
+    {
+      "type": "text",
+      "id": "countdown_time",
+      "label": "End time",
+      "default": "23:59",
+      "info": "Format: HH:MM (24-hour)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_days",
+      "label": "Show days",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hours",
+      "label": "Show hours",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_minutes",
+      "label": "Show minutes",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_seconds",
+      "label": "Show seconds",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Limited Time Offer!"
+    },
+    {
+      "type": "text",
+      "id": "subtext_1",
+      "label": "Subtext 1",
+      "default": "Don't miss out on this exclusive deal"
+    },
+    {
+      "type": "text",
+      "id": "subtext_2",
+      "label": "Subtext 2",
+      "default": "Free shipping on all orders"
+    },
+    {
+      "type": "text",
+      "id": "subtext_3",
+      "label": "Subtext 3",
+      "default": "Shop now and save big"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon",
+      "default": "#FFD700"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "timer_color",
+      "label": "Timer numbers",
+      "default": "#FFD700"
+    },
+    {
+      "type": "color",
+      "id": "timer_label_color",
+      "label": "Timer labels",
+      "default": "#CCCCCC"
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Subtext",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 14,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "timer_size",
+      "label": "Timer size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "timer_label_size",
+      "label": "Timer label size",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "subtext_size",
+      "label": "Subtext size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Icon"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_glow",
+      "label": "Enable glow effect",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "glow_color",
+      "label": "Glow color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "range",
+      "id": "glow_intensity",
+      "label": "Glow intensity",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Top margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Bottom margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_left",
+      "label": "Left margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_right",
+      "label": "Right margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown banner"
+    }
+  ]
+}
 {% endschema %}
