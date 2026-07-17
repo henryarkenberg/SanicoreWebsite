@@ -453,6 +453,9 @@
   }
 
   function enhanceFastBundle() {
+    var titleEl = document.querySelector('h1, [class*="product-title"] h1, .product__title h1');
+    var title = titleEl ? titleEl.textContent : '';
+    if (title.indexOf('Muslim Shower') === -1) return;
     initPipeToggles();
     fixVariantLabels();
     enhanceSelectedOption();
@@ -500,11 +503,9 @@
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(enhanceFastBundle, 1500);
       setTimeout(setupWhatsAppSticky, 1600);
-      setTimeout(fixAnnouncementOffset, 1600);
     });
   } else {
     setTimeout(enhanceFastBundle, 1500);
     setTimeout(setupWhatsAppSticky, 1600);
-    setTimeout(fixAnnouncementOffset, 1600);
   }
 </script>
