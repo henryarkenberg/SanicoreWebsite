@@ -1,6 +1,191 @@
+{% doc %}
+  @prompt
+    A "X people are looking at this right now" text with customizable size and color. It should have an animated dot infront of it to show that it is live. The X should rotate through random numbers
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-live-viewers-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-live-viewers-dot-{{ ai_gen_id }} {
+    width: {{ block.settings.dot_size }}px;
+    height: {{ block.settings.dot_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.dot_color }};
+    flex-shrink: 0;
+    animation: ai-live-viewers-pulse-{{ ai_gen_id }} 2s ease-in-out infinite;
+  }
+
+  @keyframes ai-live-viewers-pulse-{{ ai_gen_id }} {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
+  }
+
+  .ai-live-viewers-text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.2;
+  }
+
+  .ai-live-viewers-count-{{ ai_gen_id }} {
+    font-weight: 600;
+  }
+{% endstyle %}
+
+<live-viewers-{{ ai_gen_id }} class="ai-live-viewers-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <span class="ai-live-viewers-dot-{{ ai_gen_id }}"></span>
+  <span class="ai-live-viewers-text-{{ ai_gen_id }}">
+    <span class="ai-live-viewers-count-{{ ai_gen_id }}" data-count>{{ block.settings.min_viewers }}</span>
+    {{ block.settings.text }}
+  </span>
+</live-viewers-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class LiveViewers{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.countElement = this.querySelector('[data-count]');
+        this.minViewers = {{ block.settings.min_viewers }};
+        this.maxViewers = {{ block.settings.max_viewers }};
+        this.updateInterval = {{ block.settings.update_interval | times: 1000 }};
+      }
+
+      connectedCallback() {
+        this.startRotation();
+      }
+
+      disconnectedCallback() {
+        if (this.intervalId) {
+          clearInterval(this.intervalId);
+        }
+      }
+
+      getRandomCount() {
+        return Math.floor(Math.random() * (this.maxViewers - this.minViewers + 1)) + this.minViewers;
+      }
+
+      startRotation() {
+        this.intervalId = setInterval(() => {
+          const newCount = this.getRandomCount();
+          this.countElement.textContent = newCount;
+        }, this.updateInterval);
+      }
+    }
+
+    customElements.define('live-viewers-{{ ai_gen_id }}', LiveViewers{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Live viewers",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "people are looking at this right now"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Live indicator"
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "label": "Dot size",
+      "min": 4,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dot color",
+      "default": "#FF0000"
+    },
+    {
+      "type": "header",
+      "content": "Viewer count"
+    },
+    {
+      "type": "range",
+      "id": "min_viewers",
+      "label": "Minimum viewers",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "max_viewers",
+      "label": "Maximum viewers",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "update_interval",
+      "label": "Update interval",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Live viewers"
+    }
+  ]
+}
 {% endschema %}
