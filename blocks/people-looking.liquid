@@ -1,0 +1,124 @@
+
+<style>
+  .pl-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: {{ block.settings.dot_color }};
+    vertical-align: middle;
+    margin-right: 6px;
+    animation: plPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes plPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .pl-text {
+    font-weight: {{ block.settings.font_weight }};
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.font_size }}px;
+  }
+</style>
+
+<p class="pl-text">
+  <span class="pl-dot"></span>
+  <span class="pl-count">{{ block.settings.min_people }}-{{ block.settings.max_people }}</span>
+  {{ block.settings.suffix }}
+</p>
+
+<script>
+  (function() {
+    var el = document.querySelector('.pl-count');
+    if (!el) return;
+    var min = {{ block.settings.min_people }};
+    var max = {{ block.settings.max_people }};
+    var interval = {{ block.settings.change_interval }} * 1000;
+
+    function rand() { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+    el.textContent = rand();
+
+    if (interval > 0) {
+      setInterval(function() { el.textContent = rand(); }, interval);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "People Looking",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "suffix",
+      "label": "Text after number",
+      "default": "people are viewing this right now"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dot color",
+      "default": "#22c55e"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#111111"
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "min_people",
+      "label": "Min people",
+      "min": 1,
+      "max": 200,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "max_people",
+      "label": "Max people",
+      "min": 1,
+      "max": 500,
+      "step": 1,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "change_interval",
+      "label": "Change interval (seconds)",
+      "min": 3,
+      "max": 30,
+      "step": 1,
+      "default": 8
+    }
+  ]
+}
+{% endschema %}
