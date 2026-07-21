@@ -350,7 +350,7 @@
                 "promo_text_letter_spacing": 0,
                 "promo_text_line_height": 1.2,
                 "badge_text": "FREE",
-                "badge_bg_color": "#FFD700",
+                "badge_bg_color": "#ffd700",
                 "badge_text_color": "#000000",
                 "badge_border_radius": 8,
                 "badge_padding_vertical": 6,
@@ -363,7 +363,7 @@
                 "show_message_row": true,
                 "message_icon": "🔥",
                 "icon_size": 20,
-                "icon_color": "#FFD700",
+                "icon_color": "#ffd700",
                 "message_icon_gap": 8,
                 "message_text": "LAST FEW HOURS LEFT",
                 "message_font_size": 16,
@@ -383,7 +383,7 @@
                 "timer_units_gap": 0,
                 "timer_icon": "⏰",
                 "timer_icon_size": 24,
-                "timer_icon_color": "#FFD700",
+                "timer_icon_color": "#ffd700",
                 "timer_icon_gap": 8,
                 "timer_font_size": 28,
                 "timer_font_size_mobile": 20,
@@ -496,6 +496,22 @@
                 "text_xrnftG",
                 "price_tVjtKg"
               ]
+            },
+            "ai_gen_block_e4031c2_ntfnaJ": {
+              "type": "ai_gen_block_e4031c2",
+              "name": "Live viewers",
+              "settings": {
+                "text": "people are looking at this right now",
+                "text_size": 14,
+                "text_color": "#000000",
+                "dot_size": 8,
+                "dot_color": "#FF0000",
+                "min_viewers": 5,
+                "max_viewers": 20,
+                "update_interval": 4,
+                "desktop_width_percent": 100
+              },
+              "blocks": {}
             },
             "judge_me_reviews_preview_badge_k49Xwq": {
               "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
@@ -734,6 +750,7 @@
           "block_order": [
             "ai_gen_block_27f6cdf_UawzYP",
             "group_icgrde",
+            "ai_gen_block_e4031c2_ntfnaJ",
             "judge_me_reviews_preview_badge_k49Xwq",
             "divider_VJhene",
             "variant_picker_R3rGDr",
