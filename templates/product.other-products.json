@@ -115,7 +115,7 @@
                 "shadow_blur": 12,
                 "shadow_spread": 1,
                 "shadow_color": "#059669",
-                "show_promo_row": true,
+                "show_promo_row": false,
                 "promo_text": "BUY 3 GET 1",
                 "promo_text_font_size": 24,
                 "promo_text_font_size_mobile": 18,
