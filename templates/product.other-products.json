@@ -316,7 +316,7 @@
                 "text_size": 14,
                 "text_color": "#000000",
                 "dot_size": 8,
-                "dot_color": "#FF0000",
+                "dot_color": "#ff0000",
                 "min_viewers": 5,
                 "max_viewers": 20,
                 "update_interval": 4,
@@ -326,6 +326,10 @@
             },
             "judge_me_reviews_preview_badge_rnnCMV": {
               "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+              "settings": {}
+            },
+            "bun_bundles_promo_widget_NUpJ7P": {
+              "type": "shopify://apps/bun-bundles/blocks/promo-widget/019a5425-6e7a-724a-b93b-9924efa38d7a",
               "settings": {}
             },
             "buy_buttons_eYQEYi": {
@@ -547,6 +551,7 @@
             "variant_picker_R3rGDr",
             "ai_gen_block_e4031c2_3YpBFg",
             "judge_me_reviews_preview_badge_rnnCMV",
+            "bun_bundles_promo_widget_NUpJ7P",
             "buy_buttons_eYQEYi",
             "ai_gen_block_f39eb41_mj88yC",
             "ai_gen_block_f5f9b50_B3JHkD",
