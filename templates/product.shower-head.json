@@ -266,7 +266,7 @@
             "large_first_image": false,
             "icons_style": "chevron",
             "slideshow_controls_style": "counter",
-            "slideshow_mobile_controls_style": "counter",
+            "slideshow_mobile_controls_style": "thumbnails",
             "thumbnail_position": "right",
             "thumbnail_width": 44,
             "thumbnail_radius": 0,
