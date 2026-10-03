@@ -20,8 +20,8 @@
             "text_color": "#000000",
             "dot_size": 8,
             "dot_color": "#FF0000",
-            "min_viewers": 5,
-            "max_viewers": 20,
+            "min_viewers": 20,
+            "max_viewers": 85,
             "update_interval": 4,
             "desktop_width_percent": 100
           },
