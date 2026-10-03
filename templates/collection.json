@@ -9,6 +9,58 @@
  */
 {
   "sections": {
+    "blocks_GmX3xK": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e4031c2_4yczm6": {
+          "type": "ai_gen_block_e4031c2",
+          "settings": {
+            "text": "people are looking at this right now",
+            "text_size": 14,
+            "text_color": "#000000",
+            "dot_size": 8,
+            "dot_color": "#FF0000",
+            "min_viewers": 5,
+            "max_viewers": 20,
+            "update_interval": 4,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e4031c2_4yczm6"
+      ],
+      "name": "Live viewers",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "section": {
       "type": "section",
       "blocks": {
@@ -355,6 +407,7 @@
     }
   },
   "order": [
+    "blocks_GmX3xK",
     "section",
     "main",
     "blocks_6GRkA9",
