@@ -10,10 +10,10 @@
 {
   "current": {
     "logo": "shopify://shop_images/sanicoreTextLogoOnly.png",
-    "logo_inverse": "shopify://shop_images/sanicoreTextLogoForDark.png",
+    "logo_inverse": "shopify://shop_images/newfavicon.png",
     "logo_height": 100,
     "logo_height_mobile": 100,
-    "favicon": "shopify://shop_images/sanicoreLogoForDark.png",
+    "favicon": "shopify://shop_images/newfavicon.png",
     "page_text_color": "{{ settings.color_palette.foreground }}",
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n5",
@@ -107,6 +107,14 @@
     "variant_button_width": "equal-width-buttons",
     "mobile_nav_best_selling_product": "muslim-shower",
     "whatsapp_number": "923249502680",
+    "sections": {
+      "password-footer": {
+        "type": "password-footer",
+        "settings": {
+          "background_color": ""
+        }
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "16605207545338212596": {
