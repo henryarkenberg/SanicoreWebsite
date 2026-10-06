@@ -101,10 +101,35 @@
             "expired_line_height": 1.2
           },
           "blocks": {}
+        },
+        "image_7gfAq6": {
+          "type": "image",
+          "name": "t:names.image",
+          "settings": {
+            "image": "shopify://shop_images/Three_Plus_One_Free_Chrome_Sprayers.png",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "custom",
+            "custom_width_mobile": 80,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_27f6cdf_MCVMP6"
+        "ai_gen_block_27f6cdf_MCVMP6",
+        "image_7gfAq6"
       ],
       "name": "Urgency timer",
       "settings": {
