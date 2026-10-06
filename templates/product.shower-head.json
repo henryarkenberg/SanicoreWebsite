@@ -164,30 +164,6 @@
     "main": {
       "type": "product-information",
       "blocks": {
-        "video_3znHLi": {
-          "type": "video",
-          "name": "t:names.video",
-          "settings": {
-            "source": "uploaded",
-            "video": "shopify://files/videos/rainshowervid.mp4",
-            "video_autoplay": true,
-            "video_loop": true,
-            "alt": "",
-            "custom_width": 100,
-            "custom_width_mobile": 100,
-            "aspect_ratio": "auto",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "disclosures_g9mWze": {
           "type": "disclosures",
           "name": "t:names.disclosures",
@@ -713,6 +689,31 @@
               },
               "blocks": {}
             },
+            "video_pUKHFp": {
+              "type": "video",
+              "name": "t:names.video",
+              "settings": {
+                "source": "uploaded",
+                "video": "shopify://files/videos/rainshowervid.mp4",
+                "video_url": "",
+                "video_autoplay": true,
+                "video_loop": true,
+                "alt": "",
+                "custom_width": 100,
+                "custom_width_mobile": 100,
+                "aspect_ratio": "auto",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -775,13 +776,13 @@
             "ai_gen_block_f39eb41_mj88yC",
             "ai_gen_block_f5f9b50_JABt8e",
             "ai_gen_block_f5f9b50_9EnARQ",
+            "video_pUKHFp",
             "text_aEtTtq",
             "image_tdf8PE"
           ]
         }
       },
       "block_order": [
-        "video_3znHLi",
         "disclosures_g9mWze",
         "comparison_slider_HWRbyc",
         "image_HtVbja",
