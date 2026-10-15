@@ -129,54 +129,6 @@
           },
           "blocks": {}
         },
-        "image_6wkmt9": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/shower4.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "image_NMxagE": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/shower5.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -430,7 +382,7 @@
                   "settings": {
                     "style_class": "button",
                     "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "#D11919",
+                    "custom_button_text": "#d11919",
                     "custom_button_border": "{{ settings.color_palette.background }}"
                   },
                   "blocks": {}
@@ -588,9 +540,7 @@
       },
       "block_order": [
         "disclosures_g9mWze",
-        "comparison_slider_HWRbyc",
-        "image_6wkmt9",
-        "image_NMxagE"
+        "comparison_slider_HWRbyc"
       ],
       "settings": {
         "content_width": "content-center-aligned",
