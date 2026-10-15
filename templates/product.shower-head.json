@@ -216,7 +216,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 28,
+            "gap": 12,
             "sticky_details_desktop": true,
             "background_media": "none",
             "background_color": "",
@@ -430,13 +430,14 @@
                   "settings": {
                     "style_class": "button",
                     "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "{{ settings.color_palette.background }}",
+                    "custom_button_text": "#D11919",
                     "custom_button_border": "{{ settings.color_palette.background }}"
                   },
                   "blocks": {}
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
@@ -515,8 +516,8 @@
               "type": "ai_gen_block_f5f9b50",
               "settings": {
                 "desktop_width_percent": 100,
-                "background_color": "#E3EFFA",
-                "outline_color": "#01255F",
+                "background_color": "#e3effa",
+                "outline_color": "#01255f",
                 "corner_radius": 16,
                 "glow_intensity": 15,
                 "padding": 32,
@@ -524,7 +525,7 @@
                 "title": "Why",
                 "title_color": "#000000",
                 "subtitle": "Sanicore",
-                "subtitle_color": "#0A72D7",
+                "subtitle_color": "#0a72d7",
                 "item_1_text": "5 Year Replacement Warranty.",
                 "item_1_color": "#000000",
                 "item_2_text": "10 Seconds Easy Installation.",
