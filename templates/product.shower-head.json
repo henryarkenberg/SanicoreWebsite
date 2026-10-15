@@ -413,6 +413,31 @@
               },
               "blocks": {}
             },
+            "video_pUKHFp": {
+              "type": "video",
+              "name": "t:names.video",
+              "settings": {
+                "source": "uploaded",
+                "video": "shopify://files/videos/rainshowervid.mp4",
+                "video_url": "",
+                "video_autoplay": true,
+                "video_loop": true,
+                "alt": "",
+                "custom_width": 100,
+                "custom_width_mobile": 100,
+                "aspect_ratio": "auto",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -432,31 +457,6 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "video_pUKHFp": {
-              "type": "video",
-              "name": "t:names.video",
-              "settings": {
-                "source": "uploaded",
-                "video": "shopify://files/videos/rainshowervid.mp4",
-                "video_url": "",
-                "video_autoplay": true,
-                "video_loop": true,
-                "alt": "",
-                "custom_width": 100,
-                "custom_width_mobile": 100,
-                "aspect_ratio": "auto",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -531,8 +531,8 @@
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "ai_gen_block_f39eb41_mj88yC",
-            "text_aEtTtq",
             "video_pUKHFp",
+            "text_aEtTtq",
             "ai_gen_block_f5f9b50_JABt8e",
             "image_tdf8PE"
           ]
