@@ -13,31 +13,6 @@
   "sections": {
     "178354443246c90fbc": {
       "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_9e7c74e_WpHqUE": {
-          "type": "ai_gen_block_9e7c74e",
-          "settings": {
-            "main_text": "WINTER SALE ONLY FEW HOURS",
-            "subtext": "LEFT, BUY 3 - GET ONE FREE 📦",
-            "main_text_font": "assistant_n7",
-            "main_text_size": 19,
-            "main_text_color": "#000000",
-            "subtext_font": "assistant_n4",
-            "subtext_size": 14,
-            "subtext_color": "#666666",
-            "background_color": "#ffffff",
-            "padding_vertical": 8,
-            "padding_horizontal": 20,
-            "sticky": true,
-            "close_button_color": "#000000",
-            "close_button_size": 20
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_9e7c74e_WpHqUE"
-      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
