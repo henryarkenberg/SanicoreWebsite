@@ -66,7 +66,7 @@
         "show_title": true,
         "show_price": true,
         "show_vendor": false,
-        "show_badge": true,
+        "show_badge": false,
         "enable_quick_add": false,
         "badge_sale_bg": "#e53935",
         "badge_sale_text": "#ffffff",
