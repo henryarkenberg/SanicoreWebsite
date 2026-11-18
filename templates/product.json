@@ -68,78 +68,6 @@
           },
           "blocks": {}
         },
-        "image_rXeWGp": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_scr8puscr8puscr8-clean.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "image_6bAkNt": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_tvt09ltvt09ltvt0-clean.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "image_6wkmt9": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_6kyucc6kyucc6kyu-clean.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -150,15 +78,15 @@
             "large_first_image": false,
             "icons_style": "none",
             "slideshow_controls_style": "thumbnails",
-            "slideshow_mobile_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
             "thumbnail_width": 44,
             "thumbnail_radius": 0,
             "aspect_ratio": "adapt",
-            "constrain_to_viewport": true,
+            "constrain_to_viewport": false,
             "media_fit": "contain",
             "media_radius": 0,
-            "extend_media": false,
+            "extend_media": true,
             "zoom": true,
             "video_loop": true,
             "hide_variants": true,
@@ -291,20 +219,6 @@
                 "price_tVjtKg"
               ]
             },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "disabled": true,
-              "settings": {
-                "thickness": 0.5,
-                "corner_radius": "square",
-                "divider_color": "{{ settings.color_palette.color2 }}",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "disabled": true,
@@ -328,6 +242,10 @@
               },
               "blocks": {}
             },
+            "judge_me_reviews_preview_badge_rnnCMV": {
+              "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+              "settings": {}
+            },
             "ai_gen_block_e4031c2_RtRPJw": {
               "type": "ai_gen_block_e4031c2",
               "settings": {
@@ -342,10 +260,6 @@
                 "desktop_width_percent": 100
               },
               "blocks": {}
-            },
-            "judge_me_reviews_preview_badge_rnnCMV": {
-              "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-              "settings": {}
             },
             "bun_bundles_promo_widget_aicbJV": {
               "type": "shopify://apps/bun-bundles/blocks/promo-widget/019a5425-6e7a-724a-b93b-9924efa38d7a",
@@ -427,6 +341,31 @@
               },
               "blocks": {}
             },
+            "video_V9wePc": {
+              "type": "video",
+              "name": "t:names.video",
+              "settings": {
+                "source": "uploaded",
+                "video": "shopify://files/videos/muslimshowervid.mp4",
+                "video_url": "",
+                "video_autoplay": true,
+                "video_loop": true,
+                "alt": "",
+                "custom_width": 100,
+                "custom_width_mobile": 100,
+                "aspect_ratio": "auto",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "ai_gen_block_f5f9b50_B3JHkD": {
               "type": "ai_gen_block_f5f9b50",
               "name": "Why box",
@@ -464,6 +403,7 @@
             "ai_gen_block_f5f9b50_8QqVEe": {
               "type": "ai_gen_block_f5f9b50",
               "name": "Why box",
+              "disabled": true,
               "settings": {
                 "desktop_width_percent": 100,
                 "background_color": "#e9e6ff",
@@ -518,82 +458,26 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "video_V9wePc": {
-              "type": "video",
-              "name": "t:names.video",
-              "settings": {
-                "source": "uploaded",
-                "video": "shopify://files/videos/muslimshowervid.mp4",
-                "video_url": "",
-                "video_autoplay": true,
-                "video_loop": true,
-                "alt": "",
-                "custom_width": 100,
-                "custom_width_mobile": 100,
-                "aspect_ratio": "auto",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
-              "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "group_icgrde",
-            "divider_VJhene",
             "variant_picker_R3rGDr",
-            "ai_gen_block_e4031c2_RtRPJw",
             "judge_me_reviews_preview_badge_rnnCMV",
+            "ai_gen_block_e4031c2_RtRPJw",
             "bun_bundles_promo_widget_aicbJV",
             "buy_buttons_eYQEYi",
             "ai_gen_block_f39eb41_mj88yC",
+            "video_V9wePc",
             "ai_gen_block_f5f9b50_B3JHkD",
             "ai_gen_block_f5f9b50_8QqVEe",
-            "image_AMDFLQ",
-            "video_V9wePc",
-            "text_aEtTtq"
+            "image_AMDFLQ"
           ]
         }
       },
       "block_order": [
         "disclosures_g9mWze",
-        "comparison_slider_HWRbyc",
-        "image_rXeWGp",
-        "image_6bAkNt",
-        "image_6wkmt9"
+        "comparison_slider_HWRbyc"
       ],
       "settings": {
         "content_width": "content-center-aligned",
